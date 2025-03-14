@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navhome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home"
+        android:title="Home"
+        android:visible="true" />
+    <item
+        android:id="@+id/navfav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/item_list"
+        android:title="Items" />
+    <item
+        android:id="@+id/navadd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/navbook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/shopping"
+        android:title="Order" />
+    <item
+        android:id="@+id/navprofile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/profile_tab"
+        android:title="Profile" />
+
+</menu>

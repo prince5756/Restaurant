@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentPndOdrDetail">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg5"
+        android:hapticFeedbackEnabled="false">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="90dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bholo" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contrait1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/search_box_bg">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:letterSpacing=".1"
+            android:paddingHorizontal="10dp"
+            android:text="Customer Details"
+            android:textColor="#EB000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/horizontal_line"
+            android:backgroundTint="#EB000000"
+            app:layout_constraintBottom_toBottomOf="@+id/textView16"
+            app:layout_constraintEnd_toStartOf="@+id/textView16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView16"
+            tools:src="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/horizontal_line"
+            android:backgroundTint="#EB000000"
+            app:layout_constraintBottom_toBottomOf="@+id/textView16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toTopOf="@+id/textView16"
+            tools:src="@tools:sample/avatars" />
+
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:letterSpacing=".02"
+                            android:text="Name : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txtName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:letterSpacing=".02"
+                            android:text="Kumbhani Utveek"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView27"
+                            app:layout_constraintStart_toEndOf="@+id/textView27"
+                            app:layout_constraintTop_toTopOf="@+id/textView27" />
+
+                        <ImageView
+                            android:id="@+id/imageView22"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+                        <TextView
+                            android:id="@+id/textView28"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="Email ID : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+
+                        <TextView
+                            android:id="@+id/txtEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="utveek123@gmail.com"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView28"
+                            app:layout_constraintStart_toEndOf="@+id/textView28"
+                            app:layout_constraintTop_toTopOf="@+id/textView28" />
+
+                        <ImageView
+                            android:id="@+id/imageView23"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+                        <TextView
+                            android:id="@+id/textView29"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="Phone No. : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+
+                        <TextView
+                            android:id="@+id/txtPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="9824230047"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView29"
+                            app:layout_constraintStart_toEndOf="@+id/textView29"
+                            app:layout_constraintTop_toTopOf="@+id/textView29" />
+
+                        <ImageView
+                            android:id="@+id/imageView24"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+                        <TextView
+                            android:id="@+id/textView30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="Customer ID : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
+                        <TextView
+                            android:id="@+id/txtCustomerId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="K852U7845B7"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView30"
+                            app:layout_constraintStart_toEndOf="@+id/textView30"
+                            app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+                        <ImageView
+                            android:id="@+id/imageView25"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+                        <TextView
+                            android:id="@+id/textView41"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="Booking ID : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+
+                        <TextView
+                            android:id="@+id/txtBookingId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="YEK283HW3"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView41"
+                            app:layout_constraintStart_toEndOf="@+id/textView41"
+                            app:layout_constraintTop_toTopOf="@+id/textView41" />
+
+                        <ImageView
+                            android:id="@+id/imageView31"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="Date : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView31" />
+
+                        <TextView
+                            android:id="@+id/txtDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="31 /  1 / 2025"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView31"
+                            app:layout_constraintStart_toEndOf="@+id/textView31"
+                            app:layout_constraintTop_toTopOf="@+id/textView31" />
+
+                        <ImageView
+                            android:id="@+id/imageView26"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+                        <TextView
+                            android:id="@+id/textView33"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="Time : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView26" />
+
+                        <TextView
+                            android:id="@+id/txtTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="9:30 PM"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView33"
+                            app:layout_constraintStart_toEndOf="@+id/textView33"
+                            app:layout_constraintTop_toTopOf="@+id/textView33" />
+
+                        <ImageView
+                            android:id="@+id/imageView27"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+                        <TextView
+                            android:id="@+id/textView35"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="Number Of Guest : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+
+                        <TextView
+                            android:id="@+id/txtGuest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="TD15"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView35"
+                            app:layout_constraintStart_toEndOf="@+id/textView35"
+                            app:layout_constraintTop_toTopOf="@+id/textView35" />
+
+                        <ImageView
+                            android:id="@+id/imageView28"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="RestaurantId : "
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+
+                        <TextView
+                            android:id="@+id/txtRestaurantId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ar_one_sans_medium"
+                            android:text="10"
+                            android:textColor="#636363"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView"
+                            app:layout_constraintStart_toEndOf="@+id/textView"
+                            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+                        <ImageView
+                            android:id="@+id/imageView29"
+                            android:layout_width="0dp"
+                            android:layout_height="3dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/horizontal_line"
+                            android:backgroundTint="#EAEAEA"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtRestaurantId" />
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView39"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginStart="30dp"-->
+                        <!--                            android:layout_marginTop="15dp"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Waiter Name : "-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/imageView29" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView40"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Jaimin Shukla"-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintBottom_toBottomOf="@+id/textView39"-->
+                        <!--                            app:layout_constraintStart_toEndOf="@+id/textView39"-->
+                        <!--                            app:layout_constraintTop_toTopOf="@+id/textView39" />-->
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView51"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginTop="30dp"-->
+                        <!--                            android:fontFamily="@font/montserrat_regular"-->
+                        <!--                            android:letterSpacing=".1"-->
+                        <!--                            android:paddingHorizontal="10dp"-->
+                        <!--                            android:text="Food Details"-->
+                        <!--                            android:textColor="#EB000000"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            android:textStyle="bold"-->
+                        <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+                        <!--                        <ImageView-->
+                        <!--                            android:id="@+id/imageView36"-->
+                        <!--                            android:layout_width="0dp"-->
+                        <!--                            android:layout_height="3dp"-->
+                        <!--                            android:layout_marginStart="20dp"-->
+                        <!--                            android:background="@drawable/horizontal_line"-->
+                        <!--                            android:backgroundTint="#EB000000"-->
+                        <!--                            app:layout_constraintBottom_toBottomOf="@+id/textView51"-->
+                        <!--                            app:layout_constraintEnd_toStartOf="@+id/textView51"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toTopOf="@+id/textView51" />-->
+
+                        <!--                        <ImageView-->
+                        <!--                            android:id="@+id/imageView37"-->
+                        <!--                            android:layout_width="0dp"-->
+                        <!--                            android:layout_height="3dp"-->
+                        <!--                            android:layout_marginEnd="20dp"-->
+                        <!--                            android:background="@drawable/horizontal_line"-->
+                        <!--                            android:backgroundTint="#EB000000"-->
+                        <!--                            app:layout_constraintBottom_toBottomOf="@+id/textView51"-->
+                        <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--                            app:layout_constraintStart_toEndOf="@+id/textView51"-->
+                        <!--                            app:layout_constraintTop_toTopOf="@+id/textView51" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView43"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginStart="30dp"-->
+                        <!--                            android:layout_marginTop="35dp"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Food Name : "-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/textView51" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView44"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Tufani Paneer"-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintBottom_toBottomOf="@+id/textView43"-->
+                        <!--                            app:layout_constraintStart_toEndOf="@+id/textView43"-->
+                        <!--                            app:layout_constraintTop_toTopOf="@+id/textView43" />-->
+
+                        <!--                        <ImageView-->
+                        <!--                            android:id="@+id/imageView32"-->
+                        <!--                            android:layout_width="0dp"-->
+                        <!--                            android:layout_height="3dp"-->
+                        <!--                            android:layout_marginStart="10dp"-->
+                        <!--                            android:layout_marginTop="15dp"-->
+                        <!--                            android:layout_marginEnd="10dp"-->
+                        <!--                            android:background="@drawable/horizontal_line"-->
+                        <!--                            android:backgroundTint="#EAEAEA"-->
+                        <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/textView43" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView45"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginStart="30dp"-->
+                        <!--                            android:layout_marginTop="15dp"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Food Category : "-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/imageView32" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView46"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Vegetarain"-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintBottom_toBottomOf="@+id/textView45"-->
+                        <!--                            app:layout_constraintStart_toEndOf="@+id/textView45"-->
+                        <!--                            app:layout_constraintTop_toTopOf="@+id/textView45" />-->
+
+                        <!--                        <ImageView-->
+                        <!--                            android:id="@+id/imageView33"-->
+                        <!--                            android:layout_width="0dp"-->
+                        <!--                            android:layout_height="3dp"-->
+                        <!--                            android:layout_marginStart="10dp"-->
+                        <!--                            android:layout_marginTop="15dp"-->
+                        <!--                            android:layout_marginEnd="10dp"-->
+                        <!--                            android:background="@drawable/horizontal_line"-->
+                        <!--                            android:backgroundTint="#EAEAEA"-->
+                        <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/textView45" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView47"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginStart="30dp"-->
+                        <!--                            android:layout_marginTop="15dp"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Meal Type : "-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/imageView33" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView48"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Main Course"-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintBottom_toBottomOf="@+id/textView47"-->
+                        <!--                            app:layout_constraintStart_toEndOf="@+id/textView47"-->
+                        <!--                            app:layout_constraintTop_toTopOf="@+id/textView47" />-->
+
+                        <!--                        <ImageView-->
+                        <!--                            android:id="@+id/imageView34"-->
+                        <!--                            android:layout_width="0dp"-->
+                        <!--                            android:layout_height="3dp"-->
+                        <!--                            android:layout_marginStart="10dp"-->
+                        <!--                            android:layout_marginTop="15dp"-->
+                        <!--                            android:layout_marginEnd="10dp"-->
+                        <!--                            android:background="@drawable/horizontal_line"-->
+                        <!--                            android:backgroundTint="#EAEAEA"-->
+                        <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/textView47" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView49"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginStart="30dp"-->
+                        <!--                            android:layout_marginTop="15dp"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="Price : "-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/imageView34" />-->
+
+                        <!--                        <TextView-->
+                        <!--                            android:id="@+id/textView50"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:fontFamily="@font/ar_one_sans_medium"-->
+                        <!--                            android:text="1500 / -"-->
+                        <!--                            android:textColor="#636363"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            app:layout_constraintBottom_toBottomOf="@+id/textView49"-->
+                        <!--                            app:layout_constraintStart_toEndOf="@+id/textView49"-->
+                        <!--                            app:layout_constraintTop_toTopOf="@+id/textView49" />-->
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginBottom="90dp"-->
+<!--                        android:paddingTop="20dp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">-->
+
+<!--                        <Button-->
+<!--                            android:id="@+id/btnCancel"-->
+<!--                            android:layout_width="155dp"-->
+<!--                            android:layout_height="65dp"-->
+<!--                            android:layout_marginStart="20dp"-->
+<!--                            android:backgroundTint="#FFFFFF"-->
+<!--                            android:fontFamily="@font/montserrat_medium"-->
+<!--                            android:text="Cancel"-->
+<!--                            android:textAllCaps="true"-->
+<!--                            android:textColor="#EB000000"-->
+<!--                            android:textSize="16sp"-->
+<!--                            app:cornerRadius="50dp"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"-->
+<!--                            app:strokeColor="#000"-->
+<!--                            app:strokeWidth="2dp" />-->
+
+<!--                        <Button-->
+<!--                            android:id="@+id/btnReschedule"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="65dp"-->
+<!--                            android:layout_marginEnd="20dp"-->
+<!--                            android:backgroundTint="#EB000000"-->
+<!--                            android:fontFamily="@font/montserrat_medium"-->
+<!--                            android:text="Reschedule"-->
+<!--                            android:textAllCaps="true"-->
+<!--                            android:textColor="#FFFFFF"-->
+<!--                            android:textSize="16sp"-->
+<!--                            app:cornerRadius="50dp"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appname">SpinnerDemo</string>
+    <string name="registration_success">Account created successfully!</string>
+    <string name="registration_failed">Registration failed. Please try again.</string>
+    <string-array name="food_categories">
+        <item>Vegetarian</item>
+        <item>Non-Vegetarian</item>
+        <item>Vegan</item>
+        <item>Jain Food</item>
+    </string-array>
+
+    <string-array name="meal_type">
+        <item>Starters</item>
+        <item>Main Course</item>
+        <item>Side Dishes</item>
+        <item>Desserts</item>
+        <item>Snacks</item>
+        <item>Specialty Items</item>
+        <item>Beverages</item>
+    </string-array>
+</resources>

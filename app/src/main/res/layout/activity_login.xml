@@ -1,0 +1,212 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img" />
+
+    <!-- Logo Image at the Top -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo_modified" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/curved_background"
+        android:orientation="vertical"
+        android:layout_marginTop="220dp"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/loginTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Login"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="50dp"
+            android:textSize="35sp"
+            android:fontFamily="@font/montserrat_extra_bold"
+            android:textColor="#000"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Email Input with Icon and Underline -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <ImageView
+                android:id="@+id/iconStart"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/user" />
+
+            <EditText
+                android:id="@+id/emailField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconStart"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:hint="Email"
+                android:textColor="#000000"
+                android:textColorHint="#808080"
+                android:padding="12dp"
+                android:inputType="textEmailAddress" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/emailField"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:background="#000000" />
+        </RelativeLayout>
+
+        <!-- Password Input with Icon and Underline -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <ImageView
+                android:id="@+id/iconPassword"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pass" />
+
+            <EditText
+                android:id="@+id/passwordField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:layout_marginStart="36dp"
+                android:background="@android:color/transparent"
+                android:padding="12dp"
+                android:inputType="textPassword"
+                android:textColor="#000"
+                android:textColorHint="#808080" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/passwordField"
+                android:layout_marginTop="4dp"
+                android:background="#000000" />
+
+            <ImageView
+                android:id="@+id/showPasswordIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/eye_closed"
+                android:contentDescription="Show Password"
+                android:layout_marginEnd="8dp" />
+        </RelativeLayout>
+
+        <!-- Forgot Password Button -->
+        <TextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:layout_gravity="right"
+            android:textColor="#FF9800"
+            android:layout_marginEnd="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="8dp" />
+
+        <!-- Privacy Policy and Terms Links -->
+
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#000"
+            android:text="Login"
+            android:textColor="#FFF"
+            android:enabled="true" />
+
+        <!-- Sign Up Redirect -->
+        <TextView
+            android:id="@+id/btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Don’t have an account? Sign Up"
+            android:textColor="#000" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+        </ProgressBar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="110dp"
+            android:gravity="bottom">
+
+            <TextView
+                android:id="@+id/privacyPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Privacy Policy"
+                android:textColor="#FF9800"
+                android:clickable="true"
+                android:layout_marginStart="80dp"
+                android:onClick="openPrivacyPolicy"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/andText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" and "
+                android:textColor="#000"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/termsConditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terms &amp; Conditions"
+                android:textColor="#FF9800"
+                android:clickable="true"
+                android:onClick="openTermsConditions"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
