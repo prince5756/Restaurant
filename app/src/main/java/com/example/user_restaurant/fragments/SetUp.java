@@ -1,16 +1,11 @@
 package com.example.user_restaurant.fragments;
 
-import static androidx.core.util.TypedValueCompat.dpToPx;
-
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.TypedValue;
@@ -25,7 +20,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.user_restaurant.R;
-import com.example.user_restaurant.SetUpPageAdapter;
+import com.example.user_restaurant.activities.AdditionInfoPro;
+import com.example.user_restaurant.adapters.SetUpPageAdapter;
 import com.example.user_restaurant.activities.Subscription;
 import com.google.android.material.tabs.TabLayout;
 

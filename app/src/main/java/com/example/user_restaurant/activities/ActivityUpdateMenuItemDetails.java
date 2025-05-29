@@ -53,6 +53,10 @@ public class ActivityUpdateMenuItemDetails extends AppCompatActivity {
     private FirebaseFirestore db;
     private String restaurantId, menuId;
     String[] imageUrls;
+    private EditText portionQuantity;
+    private String portion;
+    private AutoCompleteTextView unitAutoComplete;
+    private String[] units = {"g", "kg", "ml", "L", "oz", "lb", "pcs", "serving", "cup", "tbsp"};
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -72,7 +76,6 @@ public class ActivityUpdateMenuItemDetails extends AppCompatActivity {
         // Initialize Firestore
         db = FirebaseFirestore.getInstance();
 
-        // Initialize UI elements
         edtItemName = dialog.findViewById(R.id.edtItemName);
         edtItemPrice = dialog.findViewById(R.id.edtItemPrice);
         edtItemDescription = dialog.findViewById(R.id.editTextText3);
@@ -82,6 +85,8 @@ public class ActivityUpdateMenuItemDetails extends AppCompatActivity {
         btnUpdate = dialog.findViewById(R.id.btnUpdate);
         btnCancel = dialog.findViewById(R.id.btnCancel);
         selectImageButton = dialog.findViewById(R.id.selectImgBtn);
+        portionQuantity = dialog.findViewById(R.id.portionQuantity);
+        unitAutoComplete = dialog.findViewById(R.id.unitAutoComplete);
 
 
         // Check if AutoCompleteTextView is found
@@ -90,13 +95,23 @@ public class ActivityUpdateMenuItemDetails extends AppCompatActivity {
             return;
         }
 
+        // Initialize unit dropdown
+        unitAutoComplete = dialog.findViewById(R.id.unitAutoComplete);
+        ArrayAdapter<String> unitAdapter = new ArrayAdapter<>(
+                this,
+                R.layout.dropdown_item, // Use your existing dropdown layout
+                units
+        );
+        unitAutoComplete.setAdapter(unitAdapter);
+
+
         // Predefined Food Types
-        List<String> foodTypesList = new ArrayList<>(Arrays.asList("Vegetarian", "Non-Vegetarian", "Vegan", "Gluten-Free"));
+        List<String> foodTypesList = new ArrayList<>(Arrays.asList("Vegetarian", "Non-Vegetarian", "Vegan", "Jain Food"));
         ArrayAdapter<String> foodTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, foodTypesList);
         autoCompleteFoodType.setAdapter(foodTypeAdapter);
 
         // Predefined Meal Types
-        List<String> mealTypesList = new ArrayList<>(Arrays.asList("Breakfast", "Lunch", "Dinner", "Snacks"));
+        List<String> mealTypesList = new ArrayList<>(Arrays.asList("Starters", "Main Course", "Side Dishes", "Desserts", "Snacks", "Specialty Items", "Beverages"));
         ArrayAdapter<String> mealTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, mealTypesList);
         autoCompleteMealType.setAdapter(mealTypeAdapter);
 
@@ -107,6 +122,23 @@ public class ActivityUpdateMenuItemDetails extends AppCompatActivity {
 
         String foodType = intent.getStringExtra("foodType");
         String mealType = intent.getStringExtra("mealType");
+
+        String existingQuantity = intent.getStringExtra("quantity");
+        if (existingQuantity != null && !existingQuantity.equals("Standard portion")) {
+            String[] parts = existingQuantity.split(" ", 2); // Split into quantity and unit
+            if (parts.length >= 1) {
+                portionQuantity.setText(parts[0]);
+                if (parts.length >= 2) {
+                    unitAutoComplete.setText(parts[1], false);
+                }
+            }
+        }
+
+        String quantity = portionQuantity.getText().toString().trim();
+        String unit = unitAutoComplete.getText().toString().trim();
+        portion = !quantity.isEmpty() && !unit.isEmpty()
+                ? quantity + " " + unit
+                : "Standard portion";
 
         // Ensure fetched values are in the dropdown list
         if (!foodTypesList.contains(foodType) && foodType != null) {
@@ -158,17 +190,44 @@ public class ActivityUpdateMenuItemDetails extends AppCompatActivity {
         String foodType = autoCompleteFoodType.getText().toString().trim();
         String mealType = autoCompleteMealType.getText().toString().trim();
         String itemDescription = edtItemDescription.getText().toString().trim();
+        String quantity = portionQuantity.getText().toString().trim();
+        String unit = unitAutoComplete.getText().toString().trim();
 
-        if (TextUtils.isEmpty(itemName) || TextUtils.isEmpty(itemPrice) ||
-                TextUtils.isEmpty(foodType) || TextUtils.isEmpty(mealType) || TextUtils.isEmpty(itemDescription)) {
-            Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show();
-            return;
+        // Validate all fields
+        boolean isValid = true;
+        if (TextUtils.isEmpty(itemName)) {
+            edtItemName.setError("Item name required");
+            isValid = false;
+        }
+        if (TextUtils.isEmpty(itemPrice)) {
+            edtItemPrice.setError("Item price required");
+            isValid = false;
+        }
+        if ((foodType.isEmpty() || foodType.equals("Select Food Type"))&& mealType.isEmpty() || mealType.equals("Select Meal Type")) {
+            Toast.makeText(this, "Select food type or meal type", Toast.LENGTH_SHORT).show();
+            isValid = false;
         }
 
+        if (TextUtils.isEmpty(itemDescription)) {
+            edtItemDescription.setError("Description required");
+            isValid = false;
+        }
+        if (TextUtils.isEmpty(quantity)) {
+            portionQuantity.setError("Quantity required");
+            isValid = false;
+        }
+        if (TextUtils.isEmpty(unit)) {
+            unitAutoComplete.setError("Unit required");
+            isValid = false;
+        }
+        if (!isValid) return;
+
+        // Combine quantity and unit
+        String portion = quantity + " " + unit;
+
         ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Updating menu item...");
+        progressDialog.setMessage("Updating...");
         progressDialog.show();
-        progressDialog.setCancelable(false);
 
         Map<String, Object> updateData = new HashMap<>();
         updateData.put("itemName", itemName);
@@ -176,17 +235,17 @@ public class ActivityUpdateMenuItemDetails extends AppCompatActivity {
         updateData.put("foodType", foodType);
         updateData.put("mealType", mealType);
         updateData.put("itemDescription", itemDescription);
+        updateData.put("quantity", portion); // Add combined portion
 
+        // Handle image upload
         if (areImagesSelected) {
             uploadMultipleImagesToCloudinary(imageUrls -> {
                 updateData.put("foodImageUrls", imageUrls);
-               saveUserDataToFirestore(menuId, updateData);
+                saveUserDataToFirestore(menuId, updateData);
             });
-        }else {
+        } else {
             saveUserDataToFirestore(menuId, updateData);
         }
-
-
     }
     private void uploadMultipleImagesToCloudinary(MultipleImageUploadCallback callback) {
         ExecutorService executor = Executors.newFixedThreadPool(selectedImageUris.size());

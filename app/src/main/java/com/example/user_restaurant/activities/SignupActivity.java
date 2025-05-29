@@ -48,6 +48,8 @@ public class SignupActivity extends AppCompatActivity {
     private boolean isPasswordVisibleConfirm = false;
     private ImageView createShowPasswordIcon, confirmPasswordIcon;
     FirebaseAuth mAuth;
+    Boolean isApproved = false;
+    Boolean isPayment = false;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
     FirebaseFirestore firestore;
@@ -198,7 +200,12 @@ public class SignupActivity extends AppCompatActivity {
                                 userData.put("password", strPass);
                                 userData.put("userId", userId);
                                 userData.put("restaurantId",restaurantId);
+                                userData.put("isApproved",isApproved);
+                                userData.put("isPayment",isPayment);
+                                userData.put("paymentStatus","pending");
                                 userData.put("totalNumberOfSeats","0");
+                                userData.put("signupDate", new Date());
+                                userData.put("isClosed", false);
 
                                 firestore.collection("RestaurantInformation")
                                         .document(userId)

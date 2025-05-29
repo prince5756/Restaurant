@@ -1,92 +1,166 @@
 package com.example.user_restaurant.activities;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.example.user_restaurant.R;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
 
-public class PaymentMethods extends AppCompatActivity {
+import org.json.JSONObject;
 
-    private ConstraintLayout layoutCard, layoutNetBanking, layoutUPI;
-    private ConstraintLayout childCard, childNetBanking, childUPI;
-    private TextView textCard, textNetBanking, textUPI;
-    private Drawable upArrow, defaultArrow;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
 
+public class PaymentMethods extends AppCompatActivity implements PaymentResultListener {
+    private String restaurantUid, selectedPlan, paymentAmount;
+    private DocumentReference restaurantDocRef;
+    final long[] vibe = {0, 500};
+    final Uri notificationsound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_payment_methods);
+        setContentView(R.layout.activity_payment_methods); // Ensure correct layout file
 
-        // Initialize ConstraintLayouts
-        layoutCard = findViewById(R.id.constraintLayout11);
-        layoutNetBanking = findViewById(R.id.constraintLayout12);
-        layoutUPI = findViewById(R.id.layout_upi);
+        restaurantUid = getIntent().getStringExtra("restaurantUid");
+        String amount = getIntent().getStringExtra("amount").trim();
 
-        // Initialize Child ConstraintLayouts (Initially Gone)
-        childCard = findViewById(R.id.child_layout_card);
-        childNetBanking = findViewById(R.id.child_layout_net_banking);
-        childUPI = findViewById(R.id.child_layout_upi);
+        // Determine selected plan
+        if (amount.equals("599.00")) {
+            selectedPlan = "monthly";
+        } else if (amount.equals("5499.00")) {
+            selectedPlan = "yearly";
+        } else if (amount.equals("25999.00")) {
+            selectedPlan = "permanent";
+        } else {
+            selectedPlan = "unknown";
+        }
+        paymentAmount = amount;
+        restaurantDocRef = FirebaseFirestore.getInstance()
+                .collection("RestaurantInformation")
+                .document(restaurantUid);
 
-        // Initialize TextViews
-        textCard = findViewById(R.id.textView63);
-        textNetBanking = findViewById(R.id.text_net_banking);
-        textUPI = findViewById(R.id.text_upi);
-
-        // Get drawables
-        upArrow = ContextCompat.getDrawable(this, R.drawable.up_arrow); // Your up arrow drawable
-        defaultArrow = ContextCompat.getDrawable(this, R.drawable.arrow); // Default right arrow drawable
-
-        // Set click listeners
-        layoutCard.setOnClickListener(view -> updateUI(textCard, childCard));
-        layoutNetBanking.setOnClickListener(view -> updateUI(textNetBanking, childNetBanking));
-        layoutUPI.setOnClickListener(view -> updateUI(textUPI, childUPI));
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        startPayment(amount);
     }
 
-    private void updateUI(TextView selectedTextView, ConstraintLayout selectedChildLayout) {
-        // Reset all TextViews
-        resetTextViews();
+    private void startPayment(String amount) {
+        Checkout checkout = new Checkout();
+        checkout.setKeyID(getString(R.string.razorpay_key));
 
-        // Set selected TextView color and drawable
-        selectedTextView.setTextColor(Color.BLACK);
-        selectedTextView.setCompoundDrawablesWithIntrinsicBounds(null, null, upArrow, null);
+        try {
+            JSONObject options = new JSONObject();
+            options.put("name", "Quick Reserve");
+            options.put("description", "Subscription Payment");
+            options.put("currency", "INR");
+            options.put("amount", convertAmount(amount));
+            options.put("prefill.email", "QuickReserve@example.com");
+            options.put("prefill.contact", "7383204880");
 
-        // Show the selected child layout
-        selectedChildLayout.setVisibility(View.VISIBLE);
+            checkout.open(this, options);
+        } catch (Exception e) {
+            Toast.makeText(this, "Error initiating payment: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
-    private void resetTextViews() {
-        // Reset to default state
-        textCard.setTextColor(Color.GRAY);
-        textCard.setCompoundDrawablesWithIntrinsicBounds(null, null, defaultArrow, null);
-        childCard.setVisibility(View.GONE);
+    private int convertAmount(String amount) {
+        amount = amount.replace("₹", "").trim();
+        double amt = Double.parseDouble(amount);
+        return (int) (amt * 100);
+    }
 
-        textNetBanking.setTextColor(Color.GRAY);
-        textNetBanking.setCompoundDrawablesWithIntrinsicBounds(null, null, defaultArrow, null);
-        childNetBanking.setVisibility(View.GONE);
+    @Override
+    public void onPaymentSuccess(String razorpayPaymentID) {
+        // Update payment details first
+        updatePaymentDetails();
 
-        textUPI.setTextColor(Color.GRAY);
-        textUPI.setCompoundDrawablesWithIntrinsicBounds(null, null, defaultArrow, null);
-        childUPI.setVisibility(View.GONE);
+        // Show notification
+        showPaymentNotification();
+
+        // Navigate to success
+        Toast.makeText(this, "Payment Successful!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, SuccessActivity.class));
+        finish();
+    }
+
+    private void showPaymentNotification() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    "payment_channel_id",
+                    "Payment Notifications",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+            channel.setDescription("Notifies about payment status");
+            getSystemService(NotificationManager.class).createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "payment_channel_id")
+                .setSmallIcon(R.drawable.vec_logo)
+                .setContentTitle("Payment Successful")
+                .setContentText("You are now a premium member!")
+                .setSound(notificationsound)
+                .setVibrate(vibe)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat manager = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
+            manager.notify(1001, builder.build());
+        }
+    }
+
+    private void updatePaymentDetails() {
+        String paymentDate = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(new Date());
+        String paymentValidity = calculateValidity();
+
+        HashMap<String, Object> updates = new HashMap<>();
+        updates.put("isPayment", true);
+        updates.put("paymentDate", paymentDate);
+        updates.put("paymentValidity", paymentValidity);
+        updates.put("paymentAmount", paymentAmount);
+        updates.put("paymentStatus", "paid");
+
+        restaurantDocRef.update(updates)
+                .addOnFailureListener(e -> Toast.makeText(this, "Update failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private String calculateValidity() {
+        Calendar calendar = Calendar.getInstance();
+        switch (selectedPlan) {
+            case "monthly":
+                calendar.add(Calendar.MONTH, 1);
+                return new SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(calendar.getTime());
+            case "yearly":
+                calendar.add(Calendar.YEAR, 1);
+                return new SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).format(calendar.getTime());
+            case "permanent":
+                return "Permanent";
+            default:
+                return "N/A";
+        }
+    }
+
+    @Override
+    public void onPaymentError(int code, String response) {
+        Toast.makeText(this, "Payment Failed: " + response, Toast.LENGTH_LONG).show();
+        finish();
     }
 }

@@ -108,6 +108,41 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profilename">
+
+                    <Button
+                        android:id="@+id/btnCheckRequest"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:backgroundTint="#BCBCBC"
+                        android:drawableEnd="@drawable/arrow"
+                        android:fontFamily="@font/ar_one_sans_medium"
+                        android:paddingVertical="15dp"
+                        android:text="Check Your Request"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="20dp"
+                        app:icon="@drawable/search"
+                        app:iconSize="25dp"
+                        app:iconTint="#333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+               </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,7 +150,7 @@
                     android:paddingHorizontal="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/profilename">
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
 
                     <Button
@@ -172,6 +207,8 @@
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/dropdown_section"
@@ -239,7 +276,39 @@
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dropdown_section">
 
+
+                <Button
+                    android:id="@+id/btnPaymentDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#BCBCBC"
+                    android:fontFamily="@font/ar_one_sans_medium"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="Payment Details"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/wallet"
+                    app:iconSize="25dp"
+                    app:iconTint="#333333"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout3"
                     android:layout_width="0dp"
@@ -275,32 +344,45 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dropdown_section">
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout_">
 
                     <Button
-                        android:id="@+id/history"
+                        android:id="@+id/setholidaybtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
                         android:backgroundTint="#BCBCBC"
+                        android:drawableEnd="@drawable/arrow"
                         android:fontFamily="@font/ar_one_sans_medium"
                         android:paddingVertical="15dp"
-                        android:text="History"
+                        android:text="Holidays Set Up"
                         android:textAlignment="viewStart"
                         android:textAllCaps="false"
                         android:textColor="#333333"
                         android:textSize="14sp"
                         android:textStyle="normal"
                         app:cornerRadius="20dp"
-                        app:icon="@drawable/history"
-                        app:iconSize="20dp"
+                        app:icon="@drawable/holiday"
+                        app:iconSize="25dp"
                         app:iconTint="#333333"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -309,12 +391,47 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout2"
+                    android:id="@+id/constraintLayoutStaff"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+                    <Button
+                        android:id="@+id/btnAddEmployeeDetails"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:backgroundTint="#BCBCBC"
+                        android:fontFamily="@font/ar_one_sans_medium"
+                        android:paddingVertical="15dp"
+                        android:text="Add Employee"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="20dp"
+                        app:icon="@drawable/people"
+                        app:iconSize="25dp"
+                        app:iconTint="#333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayoutStaff">
 
                     <Button
                         android:id="@+id/setupbtn"
@@ -343,6 +460,76 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                    <Button
+                        android:id="@+id/btnComplaint"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:backgroundTint="#BCBCBC"
+                        android:drawableEnd="@drawable/arrow"
+                        android:fontFamily="@font/ar_one_sans_medium"
+                        android:paddingVertical="15dp"
+                        android:text="Complaint"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="20dp"
+                        app:icon="@drawable/complaint"
+                        app:iconSize="25dp"
+                        app:iconTint="#333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+                    <Button
+                        android:id="@+id/contactbtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:backgroundTint="#BCBCBC"
+                        android:drawableEnd="@drawable/arrow"
+                        android:fontFamily="@font/ar_one_sans_medium"
+                        android:paddingVertical="15dp"
+                        android:text="Contact Us"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="20dp"
+                        app:icon="@drawable/support"
+                        app:iconSize="25dp"
+                        app:iconTint="#333333"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <Button
                     android:id="@+id/logoutbtn"
                     android:layout_width="0dp"
@@ -361,7 +548,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

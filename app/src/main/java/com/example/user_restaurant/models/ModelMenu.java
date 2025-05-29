@@ -7,7 +7,7 @@ public class ModelMenu {
     private String itemPrice;
     private String itemDescription;
     private String foodType;
-
+    private String quantity;
     private String mealType;
     private String itemId;
     private String date;
@@ -16,7 +16,7 @@ public class ModelMenu {
     public ModelMenu() {
     }
 
-    public ModelMenu(String itemName, String itemPrice, String itemDescription, String foodType, String mealType, String itemId, String date, List<String> foodImageUrls, String restaurantId) {
+    public ModelMenu(String quantity, String itemName, String itemPrice, String itemDescription, String foodType, String mealType, String itemId, String date, List<String> foodImageUrls, String restaurantId) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemDescription = itemDescription;
@@ -26,6 +26,7 @@ public class ModelMenu {
         this.date = date;
         this.foodImageUrls = foodImageUrls;
         this.restaurantId = restaurantId;
+        this.quantity = quantity;
     }
 
 //    public String getFoodType() {
@@ -35,6 +36,14 @@ public class ModelMenu {
 //    public void setFoodType(String foodType) {
 //        this.foodType = foodType;
 //    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 
     public String getRestaurantId() {
         return restaurantId;

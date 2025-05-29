@@ -26,9 +26,8 @@ import com.bumptech.glide.Glide;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.example.user_restaurant.R;
-import com.example.user_restaurant.UserDoesNotLogIn;
+import com.example.user_restaurant.adapters.UserDoesNotLogIn;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.IOException;
@@ -49,13 +48,19 @@ public class MenuTab extends Fragment {
     private ArrayList<Uri> selectedImageUris;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
-    private String restaurantId,userId;
+    private String restaurantId, userId;
     private Cloudinary cloudinary;
     private boolean areImagesSelected = false;
     private ProgressDialog progressDialog;
     private AutoCompleteTextView autoCompleteTextView, autoCompleteTextView2;
     private String[] foodtype, mealtype;
     private ArrayAdapter<String> foodadapter, mealadapter;
+
+    private EditText portionQuantity;
+    private String portion;
+    private AutoCompleteTextView unitAutoComplete;
+    private String[] units = {"g", "kg", "ml", "L", "oz", "lb", "pcs", "serving", "cup", "tbsp"};
+
 
     @SuppressLint("CheckResult")
     @Nullable
@@ -78,6 +83,20 @@ public class MenuTab extends Fragment {
 
         Glide.with(this).load(R.drawable.nutrition).into(itemImageView);
         initCloudinary();
+
+        portionQuantity = view.findViewById(R.id.portionQuantity);
+        unitAutoComplete = view.findViewById(R.id.unitAutoComplete);
+
+        // Set up unit dropdown
+        ArrayAdapter<String> unitAdapter = new ArrayAdapter<>(
+                requireContext(),
+                R.layout.dropdown_item,  // Use your existing dropdown item layout
+                units
+        );
+        unitAutoComplete.setAdapter(unitAdapter);
+        unitAutoComplete.setOnItemClickListener((parent, view1, position, id) -> {
+            unitAutoComplete.clearFocus();
+        });
 
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Submitting item...");
@@ -116,8 +135,26 @@ public class MenuTab extends Fragment {
             String strItemName = itemNameEditText.getText().toString();
             String strItemPrice = itemPriceEditText.getText().toString();
             String strDescription = itemDescriptionEditText.getText().toString();
+
+            // Modify food type and meal type values: store null if default option is selected.
             String selectedFoodType = autoCompleteTextView.getText().toString();
             String selectedMealType = autoCompleteTextView2.getText().toString();
+
+            // Get portion data
+            String quantity = portionQuantity.getText().toString().trim();
+            String unit = unitAutoComplete.getText().toString().trim();
+            portion = !quantity.isEmpty() && !unit.isEmpty()
+                    ? quantity + " " + unit
+                    : "Standard portion";
+
+            Toast.makeText(getActivity(), "portion:"+portion, Toast.LENGTH_SHORT).show();
+
+            if(selectedFoodType.equals("Select Food Type") || selectedFoodType.equals("Food Category")){
+                selectedFoodType = null;
+            }
+            if(selectedMealType.equals("Select Meal Type")){
+                selectedMealType = null;
+            }
 
             Map<String, Object> userData = new HashMap<>();
             userData.put("itemName", strItemName);
@@ -126,6 +163,7 @@ public class MenuTab extends Fragment {
             userData.put("restaurantId", restaurantId);
             userData.put("foodType", selectedFoodType);
             userData.put("mealType", selectedMealType);
+            userData.put("quantity", portion);
             userData.put("date", new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.UK).format(new Date()));
 
             if (areImagesSelected) {
@@ -221,7 +259,6 @@ public class MenuTab extends Fragment {
         }
     }
 
-
     private interface MultipleImageUploadCallback {
         void onImagesUploaded(ArrayList<String> imageUrls);
     }
@@ -239,22 +276,30 @@ public class MenuTab extends Fragment {
             itemDescriptionEditText.setError("Please Enter Item Description");
             isValid = false;
         }
+        String quantity = portionQuantity.getText().toString().trim();
+        if (quantity.isEmpty()) {
+            portionQuantity.setError("Please enter quantity");
+            isValid = false;
+        } else {
+            portionQuantity.setError(null);
+        }
+
+        // Validate unit selection
+        String unit = unitAutoComplete.getText().toString().trim();
+        if (unit.isEmpty()) {
+            unitAutoComplete.setError("Please select a unit");
+            isValid = false;
+        } else {
+            unitAutoComplete.setError(null);
+        }
         if (selectedImageUris.isEmpty()) {
             Toast.makeText(getActivity(), "Please Select Item Photos", Toast.LENGTH_SHORT).show();
             isValid = false;
         }
-        if (autoCompleteTextView.getText().toString().equals("Select Food Type") ||autoCompleteTextView.getText().toString().equals("Food Category")) {
-            Toast.makeText(getActivity(), "Please select a Food Type", Toast.LENGTH_SHORT).show();
+        if ((autoCompleteTextView.getText().toString().equals("Select Food Type") || autoCompleteTextView.getText().toString().equals("Food Category")) && autoCompleteTextView2.getText().toString().equals("Select Meal Type")) {
+            Toast.makeText(getActivity(), "Please select a Food or Meal Type", Toast.LENGTH_SHORT).show();
             isValid = false;
         }
-        if (autoCompleteTextView2.getText().toString().equals("Select Meal Type")) {
-            Toast.makeText(getActivity(), "Please select a Meal Type", Toast.LENGTH_SHORT).show();
-            isValid = false;
-        }
-//        if (!i1.isChecked() && !i2.isChecked() && !i3.isChecked() && !i4.isChecked()) {
-//            Toast.makeText(getActivity(), "Please select item type", Toast.LENGTH_SHORT).show();
-//            isValid = false;
-//        }
         return isValid;
     }
     public void clearControls(){

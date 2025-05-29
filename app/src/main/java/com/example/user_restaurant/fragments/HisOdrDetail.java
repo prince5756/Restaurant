@@ -59,6 +59,8 @@ public class HisOdrDetail extends Fragment {
         auth = FirebaseAuth.getInstance();
         currentUserId = auth.getCurrentUser().getUid();
 
+     //   loadBookings();
+
         // Fetch current user's profile data from the "users" collection
         db.collection("users").document(currentUserId)
                 .get()

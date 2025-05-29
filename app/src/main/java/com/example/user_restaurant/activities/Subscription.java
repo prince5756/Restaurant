@@ -6,12 +6,11 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.RadioButton;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
@@ -20,12 +19,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.user_restaurant.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Subscription extends AppCompatActivity {
-
+    FirebaseAuth auth;
+    String restaurantUid;
     private ConstraintLayout planMonthly, planYearly, planPermanent, planCustom;
-    private RadioButton radioMonthly, radioYearly, radioPermanent, radioCustom;
-    private Drawable defaultBg;
+    private RadioButton radioMonthly, radioYearly, radioPermanent, radio5Per;
+    private Drawable defaultBgMonthly, defaultBgYearly, defaultBgPermanent, defaultBgCustom;
     private Button continueBtn;
 
     @SuppressLint("MissingInflatedId")
@@ -35,50 +36,50 @@ public class Subscription extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_subscription);
 
+        auth = FirebaseAuth.getInstance();
+        restaurantUid = auth.getCurrentUser().getUid();
+
         // Initialize ConstraintLayouts
         planMonthly = findViewById(R.id.constraintLayout7);
         planYearly = findViewById(R.id.constraintLayout8);
         planPermanent = findViewById(R.id.constraintLayout9);
-        planCustom = findViewById(R.id.constraintLayout10); // 4th option
+        planCustom = findViewById(R.id.constraintLayout10);
 
         // Initialize RadioButtons
         radioMonthly = findViewById(R.id.radioButton1);
         radioYearly = findViewById(R.id.radioButton2);
         radioPermanent = findViewById(R.id.radioButton3);
-        radioCustom = findViewById(R.id.radioButton4); // 4th radio
+        radio5Per = findViewById(R.id.radioButton4);
 
         continueBtn = findViewById(R.id.button5);
 
-        // Save Default Background
-        defaultBg = planMonthly.getBackground();
+        // Save Default Backgrounds
+        defaultBgMonthly = planMonthly.getBackground();
+        defaultBgYearly = planYearly.getBackground();
+        defaultBgPermanent = planPermanent.getBackground();
+        defaultBgCustom = planCustom.getBackground();
 
         // Click listeners for each plan
         planMonthly.setOnClickListener(view -> selectPlan(planMonthly, radioMonthly));
         planYearly.setOnClickListener(view -> selectPlan(planYearly, radioYearly));
         planPermanent.setOnClickListener(view -> selectPlan(planPermanent, radioPermanent));
-        planCustom.setOnClickListener(view -> selectPlan(planCustom, radioCustom));
+        planCustom.setOnClickListener(view -> selectPlan(planCustom, radio5Per));
 
-        continueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                continueBtn.animate()
-                        .scaleX(0.9f) // Slightly shrink the card
-                        .scaleY(0.9f)
-                        .alpha(0.8f)  // Slightly fade out
-                        .setDuration(500) // Duration of the first animation phase
-                        .withEndAction(() -> {
-                            continueBtn.animate()
-                                    .scaleX(1f) // Return to original size
-                                    .scaleY(1f)
-                                    .alpha(1f) // Return to full visibility
-                                    .setDuration(500)
-                                    .start();
-                        })
-                        .start();
+        continueBtn.setOnClickListener(view -> {
+            animateButton(continueBtn);
 
-                Intent intent = new Intent(Subscription.this, PaymentMethods.class);
-                startActivity(intent);
+            Intent intent = new Intent(Subscription.this, PaymentMethods.class);
+            intent.putExtra("restaurantUid", restaurantUid);
+            if (radioMonthly.isChecked()) {
+                intent.putExtra("amount", " 599.00");
+            } else if (radioYearly.isChecked()) {
+                intent.putExtra("amount", " 5499.00");
+            } else if (radioPermanent.isChecked()) {
+                intent.putExtra("amount", " 25999.00");
+            } else if (radio5Per.isChecked()) {
+                intent.putExtra("amount", " 100.00");
             }
+            startActivity(intent);
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -89,60 +90,68 @@ public class Subscription extends AppCompatActivity {
     }
 
     private void selectPlan(ConstraintLayout selectedLayout, RadioButton selectedRadio) {
-        // Reset all to default
         resetSelection();
 
-        // Set selected background
+        // Apply new styles
         selectedLayout.setBackground(ContextCompat.getDrawable(this, R.drawable.black_box));
-
-        // Change radio button tint
         selectedRadio.setButtonTintList(ContextCompat.getColorStateList(this, android.R.color.black));
-
-        // Change radio button text color
         selectedRadio.setTextColor(Color.BLACK);
 
-        selectedLayout.animate()
-                .scaleX(0.9f) // Slightly shrink the card
-                .scaleY(0.9f)
-                .alpha(0.8f)  // Slightly fade out
-                .setDuration(500) // Duration of the first animation phase
-                .withEndAction(() -> {
-                    selectedLayout.animate()
-                            .scaleX(1f) // Return to original size
-                            .scaleY(1f)
-                            .alpha(1f) // Return to full visibility
-                            .setDuration(500)
-                            .start();
-                })
-                .start();
-
-        // Set checked
+        animateSelection(selectedLayout);
         selectedRadio.setChecked(true);
     }
 
     private void resetSelection() {
-        // Reset all layouts to default
-        planMonthly.setBackground(defaultBg);
-        planYearly.setBackground(defaultBg);
-        planPermanent.setBackground(defaultBg);
-        planCustom.setBackground(defaultBg);
+        // Reset layouts
+        planMonthly.setBackground(defaultBgMonthly);
+        planYearly.setBackground(defaultBgYearly);
+        planPermanent.setBackground(defaultBgPermanent);
+        planCustom.setBackground(defaultBgCustom);
 
         // Reset radio buttons
-        radioMonthly.setChecked(false);
-        radioYearly.setChecked(false);
-        radioPermanent.setChecked(false);
-        radioCustom.setChecked(false);
+        resetRadioButton(radioMonthly);
+        resetRadioButton(radioYearly);
+        resetRadioButton(radioPermanent);
+        resetRadioButton(radio5Per);
+    }
 
-        // Reset radio button tint to default
-        radioMonthly.setButtonTintList(ContextCompat.getColorStateList(this, android.R.color.darker_gray));
-        radioYearly.setButtonTintList(ContextCompat.getColorStateList(this, android.R.color.darker_gray));
-        radioPermanent.setButtonTintList(ContextCompat.getColorStateList(this, android.R.color.darker_gray));
-        radioCustom.setButtonTintList(ContextCompat.getColorStateList(this, android.R.color.darker_gray));
+    private void resetRadioButton(RadioButton radioButton) {
+        radioButton.setChecked(false);
+        radioButton.setButtonTintList(ContextCompat.getColorStateList(this, android.R.color.darker_gray));
+        radioButton.setTextColor(Color.GRAY);
+    }
 
-        // Reset radio button text color to default (gray)
-        radioMonthly.setTextColor(Color.GRAY);
-        radioYearly.setTextColor(Color.GRAY);
-        radioPermanent.setTextColor(Color.GRAY);
-        radioCustom.setTextColor(Color.GRAY);
+    private void animateSelection(View view) {
+        view.animate()
+                .scaleX(0.95f)
+                .scaleY(0.95f)
+                .alpha(0.9f)
+                .setDuration(300)
+                .setInterpolator(new DecelerateInterpolator())
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .alpha(1f)
+                        .setDuration(300)
+                        .setInterpolator(new DecelerateInterpolator())
+                        .start())
+                .start();
+    }
+
+    private void animateButton(View view) {
+        view.animate()
+                .scaleX(0.95f)
+                .scaleY(0.95f)
+                .alpha(0.9f)
+                .setDuration(300)
+                .setInterpolator(new DecelerateInterpolator())
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .alpha(1f)
+                        .setDuration(300)
+                        .setInterpolator(new DecelerateInterpolator())
+                        .start())
+                .start();
     }
 }

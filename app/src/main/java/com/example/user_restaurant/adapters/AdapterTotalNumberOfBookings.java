@@ -2,6 +2,7 @@ package com.example.user_restaurant.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,8 +54,19 @@ public class AdapterTotalNumberOfBookings extends RecyclerView.Adapter<AdapterTo
         // Set default placeholders until customer data is loaded
         holder.txtName.setText("Loading...");
         holder.txtCustomerId.setText("Loading...");
+        holder.txtStatus.setText(booking.getStatus());
         holder.txtDate.setText(booking.getBookingDate() != null ? booking.getBookingDate().toString() : "N/A");
         holder.imageView.setImageResource(R.drawable.profile_tab);
+
+        if (booking.getStatus() != null) {
+            if (booking.getStatus().equalsIgnoreCase("Cancelled")) {
+                holder.txtStatus.setTextColor(Color.RED);
+            } else if (booking.getStatus().equalsIgnoreCase("Booked")) {
+                holder.txtStatus.setTextColor(Color.GREEN);
+            } else if (booking.getStatus().equalsIgnoreCase("Schedule Updated")) {
+                holder.txtStatus.setTextColor(Color.BLUE);
+            }
+        }
 
         // Check cache for customer data using booking's customerId
         if (customerCache.containsKey(booking.getCustomerId())) {
@@ -112,6 +124,7 @@ public class AdapterTotalNumberOfBookings extends RecyclerView.Adapter<AdapterTo
             bundle.putString("guestCount", String.valueOf(booking.getGuestCount()));
             bundle.putString("bookingTimestamp", String.valueOf(booking.getBookingTimestamp()));
             bundle.putString("expiryTimestamp", String.valueOf(booking.getExpiryTimestamp()));
+            bundle.putString("Status", booking.getStatus());
 
             // Create an intent to start ActivityBookingHistory and pass the bundle
             Intent intent = new Intent(context, ActivityBookingHistory.class);
@@ -133,6 +146,7 @@ public class AdapterTotalNumberOfBookings extends RecyclerView.Adapter<AdapterTo
                 Glide.with(context)
                         .load(customer.profileImageUrl)
                         .placeholder(R.drawable.profile_tab)
+                        .error(R.drawable.profile_tab)
                         .into(holder.imageView);
             } else {
                 holder.imageView.setImageResource(R.drawable.profile_tab);
@@ -142,7 +156,7 @@ public class AdapterTotalNumberOfBookings extends RecyclerView.Adapter<AdapterTo
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView txtName, txtCustomerId, txtDate;
+        TextView txtName, txtCustomerId, txtDate, txtStatus;
         CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -151,6 +165,7 @@ public class AdapterTotalNumberOfBookings extends RecyclerView.Adapter<AdapterTo
             txtName = itemView.findViewById(R.id.txtName);
             txtCustomerId = itemView.findViewById(R.id.txtCustomerId);
             txtDate = itemView.findViewById(R.id.txtDate);
+            txtStatus = itemView.findViewById(R.id.txtStatus);
             cardView = itemView.findViewById(R.id.cardView3);
         }
     }

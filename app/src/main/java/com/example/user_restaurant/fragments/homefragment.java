@@ -23,7 +23,8 @@ import com.example.user_restaurant.R;
 import com.example.user_restaurant.activities.ActivityBookingList;
 import com.example.user_restaurant.activities.ActivityMenuList;
 import com.example.user_restaurant.activities.ActivityShowRestaurantProfileDetails;
-import com.example.user_restaurant.fragments.pending_oders;
+import com.example.user_restaurant.activities.Subscription;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -61,6 +62,12 @@ public class homefragment extends Fragment {
     // Card references for the 4 metrics
     private CardView card1, card2, card3, card4;
 
+    Boolean isPayment;
+    Date expiryDate;
+    TextView txtHead,txtTitle;
+    ImageView img;
+    MaterialCardView fmPayment;
+
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
@@ -77,6 +84,12 @@ public class homefragment extends Fragment {
         imgProfile = view.findViewById(R.id.imgProfile);
         txtName = view.findViewById(R.id.txtName);
 
+
+        txtHead = view.findViewById(R.id.tvSubscriptionStatus);
+        txtTitle = view.findViewById(R.id.btnSubscriptionAction); // Make sure this ID matches
+        img = view.findViewById(R.id.img);
+        fmPayment = view.findViewById(R.id.flpayment);
+
         // Initialize card references
         card1 = view.findViewById(R.id.card1); // Will display total menus
         card2 = view.findViewById(R.id.card2); // Will display total orders
@@ -91,6 +104,9 @@ public class homefragment extends Fragment {
 
         // Trigger initial card animations
         animateCardViews(card1, card2, card3, card4);
+
+
+
 
         // card1: show menu list
         card1.setOnClickListener(v -> {
@@ -116,7 +132,7 @@ public class homefragment extends Fragment {
 
         // Load restaurant user data from Firestore
         loadUserData();
-
+//        fetchRestaurantData();
         // On profile image click, show profile details
         imgProfile.setOnClickListener(view1 ->
                 startActivity(new Intent(getActivity(), ActivityShowRestaurantProfileDetails.class))
@@ -139,6 +155,8 @@ public class homefragment extends Fragment {
      *  - Then fetches the counts for menus, orders, clients, and upcoming orders.
      */
     private void loadUserData() {
+
+
         String currentUserId = auth.getCurrentUser() != null ? auth.getCurrentUser().getUid() : null;
 
         if (currentUserId == null) {
@@ -153,6 +171,23 @@ public class homefragment extends Fragment {
                 // Display restaurant name
                 txtName.setText(documentSnapshot.getString("restaurantName"));
 
+                Boolean isPayment = documentSnapshot.getBoolean("isPayment");
+
+                if(isPayment==true){
+                    img.setVisibility(View.GONE);
+                    txtTitle.setText(documentSnapshot.getString("paymentValidity"));
+                    txtHead.setText("Premium Plan Active until");
+                }else{
+                    img.setVisibility(View.VISIBLE);
+                    txtTitle.setText("Subscribe Now");
+                    txtHead.setText("Unlock Premium features");
+                    fmPayment.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(getActivity(), Subscription.class));
+                        }
+                    });
+                }
                 // Display restaurant profile image (first in restaurantImageUrls, if present)
                 List<String> imageUrls = (List<String>) documentSnapshot.get("restaurantImageUrls");
                 if (imageUrls != null && !imageUrls.isEmpty()) {
@@ -360,4 +395,30 @@ public class homefragment extends Fragment {
         cardView.setCardBackgroundColor(requireContext().getResources().getColor(R.color.btn_bg_black));
         animateTextChange(cardView);
     }
+//    private void fetchRestaurantData() {
+//        String currentUserId = auth.getCurrentUser() != null ? auth.getCurrentUser().getUid() : null;
+//        if (currentUserId == null) return;
+//
+//        db.collection("RestaurantInformation")
+//                .document(currentUserId)
+//                .get()
+//                .addOnSuccessListener(documentSnapshot -> {
+//                    // Existing fields you're already using
+//                    String restaurantName = documentSnapshot.getString("restaurantName");
+//                    List<String> imageUrls = (List<String>) documentSnapshot.get("restaurantImageUrls");
+//
+//                    // Additional fields from your Firestore document
+//                    String location = documentSnapshot.getString("location");
+////                    String phone = documentSnapshot.getString("phone");
+////                    String openingHours = documentSnapshot.getString("openingHours");
+////                    Boolean idClosed = documentSnapshot.getBoolean("idClosed");
+////                    Boolean idPayment = documentSnapshot.getBoolean("idPayment");
+//                    txtHead.setText(location);
+//
+//                    // Use these values as needed (e.g., update UI/store in variables)
+//                })
+//                .addOnFailureListener(e -> {
+//                    // Handle error
+//                });
+//    }
 }

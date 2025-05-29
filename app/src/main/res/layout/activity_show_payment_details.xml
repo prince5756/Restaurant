@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activities.ShowPaymentDetails">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="Payment Details"
+            android:textColor="#000"
+            android:textSize="25dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/txtPaymentAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/ar_one_sans_medium"
+            android:padding="5dp"
+            android:paddingLeft="15dp"
+            android:text="PaymentAmount"
+            android:textColor="#636363"
+            android:textSize="20sp"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/horizontal_line"
+            android:backgroundTint="#8F8F8F"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtPaymentDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/ar_one_sans_medium"
+            android:padding="5dp"
+            android:paddingLeft="15dp"
+            android:text="PaymentDate"
+            android:textColor="#636363"
+            android:textSize="20sp"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView30"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/horizontal_line"
+            android:backgroundTint="#8F8F8F"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtPaymentValidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/ar_one_sans_medium"
+            android:padding="5dp"
+            android:paddingLeft="15dp"
+            android:text="PaymentValidity"
+            android:textColor="#636363"
+            android:textSize="20sp"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView32"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/horizontal_line"
+            android:backgroundTint="#8F8F8F"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtPaymentStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/ar_one_sans_medium"
+            android:padding="5dp"
+            android:paddingLeft="15dp"
+            android:text="PaymentStatus"
+            android:textColor="#636363"
+            android:textSize="20sp"></TextView>
+
+        <Button
+            android:id="@+id/btnUpgrade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#000"
+            android:fontFamily="@font/ar_one_sans_medium"
+            android:letterSpacing="0.05"
+            android:text="Upgrade Your Plane"
+            android:textAllCaps="false"
+            android:textColor="#FFFF"
+            android:textSize="16sp"
+            android:textStyle="bold">
+
+        </Button>
+    </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

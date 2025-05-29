@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TermsAndCondition">
+
+    <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@+id/btnBack" android:layout_width="30dp" android:layout_height="30dp" android:padding="2dp" android:scaleType="fitStart" android:src="@drawable/ic_back_arrow"/>
+        <TextView android:id="@+id/textView" android:layout_width="wrap_content" android:layout_height="30dp" android:layout_marginStart="10dp" android:layout_weight="1" android:gravity="center_vertical" android:text="About" android:textSize="20sp" android:textStyle="bold"/>
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginBottom="20dp" android:padding="16dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <!--  Project Logo  -->
+            <ImageView android:id="@+id/imgLogo" android:layout_width="120dp" android:layout_height="120dp" android:layout_gravity="center_horizontal" android:src="@drawable/logo"/>
+            <!--  Project Title  -->
+            <TextView android:id="@+id/txtProjectTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="16dp" android:text="Quick Reserve" android:textColor="#000000" android:textSize="26sp" android:textStyle="bold"/>
+            <!--  Project Overview Header  -->
+            <TextView android:id="@+id/txtOverviewHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="Overview" android:textColor="#000000" android:textSize="20sp" android:textStyle="bold"/>
+            <!--  Project Overview  -->
+            <TextView android:id="@+id/txtOverview" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text=" Welcome to Restaurant Table Booker – an innovative solution designed to help you reserve a table at your favorite restaurant before you even step inside. No more waiting in line; simply book your table in advance and enjoy a seamless dining experience." android:textColor="#000000" android:textSize="16sp"/>
+            <!--  Project Details Header  -->
+            <TextView android:id="@+id/txtDetailsHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="Project Details" android:textColor="#000000" android:textSize="20sp" android:textStyle="bold"/>
+            <!--  Project Details  -->
+            <TextView android:id="@+id/txtDetails" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text=" • Developed in Java using Android Studio with a focus on modular design and clean code architecture. • User interface crafted with XML, Material Design components, and a responsive layout. • Real-time data integration with Firebase Firestore ensures up-to-date availability. • Efficient list handling using RecyclerView for a smooth and dynamic experience. • Features include user authentication, reservation management, and notifications. • Designed to scale with additional functionalities such as loyalty programs and promotional offers." android:textColor="#000000" android:textSize="16sp"/>
+            <!--  Team Members Header  -->
+            <TextView android:id="@+id/txtTeamHeader" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="Our Team" android:textColor="#000000" android:textSize="20sp" android:textStyle="bold"/>
+            <!--  Team Member 1  -->
+            <TextView android:id="@+id/txtMember1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="1. Prince Lakhankiya (alice.johnson@example.com)" android:textColor="#000000" android:textSize="16sp"/>
+            <!--  Team Member 2  -->
+            <TextView android:id="@+id/txtMember2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="2. Utveek Kumbhani (bob.smith@example.com)" android:textColor="#000000" android:textSize="16sp"/>
+            <!--  Team Member 3  -->
+            <TextView android:id="@+id/txtMember3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="3. Roshan Savani (carol.white@example.com)" android:textColor="#000000" android:textSize="16sp"/>
+            <!--  Team Member 4  -->
+            <TextView android:id="@+id/txtMember4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="4. Dipak Solanki (david.brown@example.com)" android:textColor="#000000" android:textSize="16sp"/>
+            <!--  Team Member 5  -->
+            <TextView android:id="@+id/txtMember5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="5. Jignesh Gohil (emma.davis@example.com)" android:textColor="#000000" android:textSize="16sp"/>
+            <!--  Team Member 6  -->
+            <TextView android:id="@+id/txtMember6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="6. Sumit Sarvaiya (frank.miller@example.com)" android:textColor="#000000" android:textSize="16sp"/>
+            <!--  Footer / Version Info  -->
+            <TextView android:id="@+id/txtFooter" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:gravity="center_horizontal" android:text="Version 1.0 | © 2025 Restaurant Table Booker. All rights reserved." android:textColor="#000000" android:textSize="14sp"/>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

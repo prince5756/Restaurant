@@ -8,6 +8,7 @@ public class ModelBooking {
     private String bookingId;
     private String restaurantId;
     private String customerId;
+    private String Status;
     private String date;
     private String time;
     private String mealType;
@@ -20,11 +21,12 @@ public class ModelBooking {
     }
 
     // Constructor with all fields
-    public ModelBooking(String bookingId, String restaurantId, String customerId, String date, String time,
+    public ModelBooking(String bookingId, String restaurantId, String customerId, String Status, String date, String time,
                         String mealType, int guestCount, Timestamp bookingTimestamp, Timestamp expiryTimestamp) {
         this.bookingId = bookingId;
         this.restaurantId = restaurantId;
         this.customerId = customerId;
+        this.Status = Status;
         this.date = date;
         this.time = time;
         this.mealType = mealType;
@@ -52,6 +54,15 @@ public class ModelBooking {
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
     public String getDate() {
         return date;
     }

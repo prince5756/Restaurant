@@ -90,19 +90,15 @@
             app:layout_constraintStart_toStartOf="@+id/editTextText"
             app:layout_constraintTop_toTopOf="@+id/editTextText" />
 
-        <EditText
-            android:id="@+id/editTextText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <!-- Spinner for Waiter Name (replacing the previous EditText) -->
+        <Spinner
+            android:id="@+id/spinner_waiter"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
             android:layout_marginTop="15dp"
-            android:ems="10"
-            android:fontFamily="@font/ar_one_sans_medium"
-            android:hint="Waiter Name"
-            android:inputType="text"
             android:paddingLeft="40dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
+            android:fontFamily="@font/ar_one_sans_medium"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextText" />
@@ -114,9 +110,10 @@
             android:layout_marginStart="5dp"
             android:layout_marginBottom="5dp"
             android:src="@drawable/servant"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextText2"
-            app:layout_constraintStart_toStartOf="@+id/editTextText2"
-            app:layout_constraintTop_toTopOf="@+id/editTextText2" />
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_waiter"
+            app:layout_constraintStart_toStartOf="@+id/spinner_waiter"
+            app:layout_constraintTop_toTopOf="@+id/spinner_waiter"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView21"
@@ -129,7 +126,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner_waiter" />
 
         <Spinner
             android:id="@+id/spinner_seat"

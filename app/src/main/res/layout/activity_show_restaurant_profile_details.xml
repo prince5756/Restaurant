@@ -118,7 +118,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name">
+            android:hint="Name"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputName"
@@ -131,11 +135,18 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mobile">
+            android:layout_marginTop="10dp"
+            android:hint="Mobile"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            android:maxLength="10"
+            app:boxCornerRadiusTopStart="15dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputMobile"
                 android:layout_width="match_parent"
+                android:maxLength="10"
                 android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -144,8 +155,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:hint="Email"
-            android:clickable="false">
+            android:clickable="false"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputEmail"
@@ -155,34 +171,40 @@
                 android:clickable="false"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Opening Hours">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputOpeningHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Closing Hours">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputClosingHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/editMapAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="Address from Map"
-                android:inputType="textMultiLine"
-                android:textColorHint="@color/black"
-                android:gravity="top"
-                android:paddingLeft="40dp"
-                android:textColor="#232323"
-                android:textSize="18sp"
-                android:minHeight="80dp"
-                android:focusable="false"
-                android:clickable="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editFloorNumber" />
+            android:orientation="vertical">
 
             <!-- Button to Fetch Address -->
             <Button
                 android:id="@+id/btnFetchAddress"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#232323"
@@ -191,9 +213,30 @@
                 android:text="Fetch Address from Map"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
+                app:cornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editMapAddress" />
+
+            <EditText
+                android:id="@+id/editMapAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="top"
+                android:hint="Address from Map"
+                android:inputType="textMultiLine"
+                android:minHeight="80dp"
+                android:textAlignment="center"
+                android:textColor="#232323"
+                android:textColorHint="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editFloorNumber" />
 
         </LinearLayout>
 
@@ -219,10 +262,15 @@
             android:id="@+id/updateProfileButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
+            android:backgroundTint="#000"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="10dp"
             android:text="Update profile"
-            android:textColor="#FFFFFF" />
-
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="13dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

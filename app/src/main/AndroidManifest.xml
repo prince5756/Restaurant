@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".ContactUs"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StaffDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ActivityCheckRegistrationRequest"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ShowPaymentDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ComplaintHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TermsAndCondition"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CloseRestaurantActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdditionInfoPro"
+            android:exported="false" />
         <activity
             android:name=".activities.ActivityMenuList"
             android:exported="false" />
@@ -28,7 +57,7 @@
             android:name=".activities.ActivityUpdateMenuItemDetails"
             android:exported="false" />
         <activity
-            android:name=".activities.MapActivity"
+            android:name=".activities.SuccessActivity"
             android:exported="false" />
         <activity
             android:name=".activities.PaymentMethods"
@@ -38,15 +67,6 @@
             android:exported="false" /> <!-- Main Application Activities -->
         <activity
             android:name=".activities.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activities.ActivityRestaurantInformation"
             android:exported="true" /> <!-- Main Application Activities -->
         <!-- Other Activities -->
         <activity
@@ -59,7 +79,7 @@
             android:name=".fragments.History"
             android:exported="false" />
         <activity
-            android:name=".fragments.Feedback"
+            android:name=".activities.FeedbackActivity"
             android:exported="false" />
         <activity
             android:name=".activities.profile"
@@ -69,7 +89,13 @@
             android:exported="true" />
         <activity
             android:name=".activities.loadingact"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.SignupActivity"
             android:exported="true" />

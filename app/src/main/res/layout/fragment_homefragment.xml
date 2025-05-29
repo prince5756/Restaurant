@@ -2,52 +2,53 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/frame_container"
-    android:background="#F1F0F5"
+
+    android:background="@drawable/custom_shape"
     tools:context=".fragments.homefragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/dashboard_bg">
+        android:layout_height="250dp">
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/amaranth"
             android:text="Welcome ,"
-            android:textColor="#fff"
-            android:textSize="24sp"
+            android:textColor="#EAE1E1"
+            android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/crdView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/ar_one_sans_medium"
             android:text="Surbhi Reataurant"
             android:textColor="#fff"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/crdView"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="30dp"
+            android:id="@+id/crdView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
             app:cardCornerRadius="50dp"
             app:layout_constraintBottom_toBottomOf="@+id/txtName"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView7"
             tools:ignore="NotSibling">
 
@@ -59,13 +60,80 @@
                 android:scaleY="2"
                 android:src="@drawable/profile_pic" />
         </androidx.cardview.widget.CardView>
+
+
+        <!-- Subscription Status Section -->
+        <!-- Replace the existing Subscription Status Section with this -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtName">
+
+            <TextView
+                android:id="@+id/tvSubscriptionStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ar_one_sans_medium"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/flpayment"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Premium Plan Active until" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/flpayment"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubscriptionStatus"
+                app:strokeColor="#DDDDDD"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp">
+
+                    <TextView
+                        android:id="@+id/btnSubscriptionAction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subscribe Now"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/right_arrow"
+                        android:tint="@color/black" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="250dp">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -82,7 +150,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="70dp"
                     android:paddingHorizontal="30dp"
                     android:paddingVertical="20dp">
 

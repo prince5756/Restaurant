@@ -2,7 +2,9 @@ package com.example.user_restaurant.activities;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -25,7 +27,6 @@ import com.bumptech.glide.Glide;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.example.user_restaurant.R;
-import com.example.user_restaurant.UserDoesNotLogIn;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,6 +39,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -51,7 +53,7 @@ public class ActivityShowRestaurantProfileDetails extends AppCompatActivity {
     private static final int LOCATION_PERMISSION_REQUEST = 100;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
-    private TextInputEditText inputName, inputMobile, inputEmail;
+    private TextInputEditText inputName, inputMobile, inputEmail,inputOpeningHours,inputClosingHours ;
     private EditText editMapAddress;
     private Button btnFetchAddress;
     private FusedLocationProviderClient fusedLocationProviderClient;
@@ -75,6 +77,8 @@ public class ActivityShowRestaurantProfileDetails extends AppCompatActivity {
         inputName = findViewById(R.id.inputName);
         inputMobile = findViewById(R.id.inputMobile);
         inputEmail = findViewById(R.id.inputEmail);
+        inputOpeningHours = findViewById(R.id.inputOpeningHours);
+        inputClosingHours = findViewById(R.id.inputClosingHours);
         updateProfileButton = findViewById(R.id.updateProfileButton);
         profileCircleview = findViewById(R.id.profileCircleview);
         selectImagesButton = findViewById(R.id.editProfilePicture);
@@ -87,6 +91,8 @@ public class ActivityShowRestaurantProfileDetails extends AppCompatActivity {
 
         initCloudinary();
         loadUserData();
+        setupOpeningTimePicker();
+        setupClosingTimePicker();
         // Progress Dialog for showing upload progress
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Updating Your Details...");
@@ -103,6 +109,85 @@ public class ActivityShowRestaurantProfileDetails extends AppCompatActivity {
         });
 
     }
+    private void setupOpeningTimePicker() {
+        inputOpeningHours.setOnClickListener(view -> {
+            final Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int minute = calendar.get(Calendar.MINUTE);
+
+            TimePickerDialog timePickerDialog = new TimePickerDialog(
+                    ActivityShowRestaurantProfileDetails.this,
+                    (timePicker, selectedHour, selectedMinute) -> {
+                        // Convert hour to 12-hour format and determine AM/PM
+                        String amPm;
+                        int hourIn12Format;
+
+                        if (selectedHour == 0) {
+                            hourIn12Format = 12;
+                            amPm = "AM";
+                        } else if (selectedHour == 12) {
+                            hourIn12Format = 12;
+                            amPm = "PM";
+                        } else if (selectedHour > 12) {
+                            hourIn12Format = selectedHour - 12;
+                            amPm = "PM";
+                        } else {
+                            hourIn12Format = selectedHour;
+                            amPm = "AM";
+                        }
+
+                        String time = String.format("%02d:%02d %s", hourIn12Format, selectedMinute, amPm);
+                        inputOpeningHours.setText(time);
+                    },
+                    hour,
+                    minute,
+                    false // false for 12-hour format with AM/PM
+            );
+
+            timePickerDialog.show();
+        });
+    }
+
+    private void setupClosingTimePicker() {
+        inputClosingHours.setOnClickListener(view -> {
+            final Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            int minute = calendar.get(Calendar.MINUTE);
+
+            TimePickerDialog timePickerDialog = new TimePickerDialog(
+                    ActivityShowRestaurantProfileDetails.this,
+                    (timePicker, selectedHour, selectedMinute) -> {
+                        // Convert hour to 12-hour format and determine AM/PM
+                        String amPm;
+                        int hourIn12Format;
+
+                        if (selectedHour == 0) {
+                            hourIn12Format = 12;
+                            amPm = "AM";
+                        } else if (selectedHour == 12) {
+                            hourIn12Format = 12;
+                            amPm = "PM";
+                        } else if (selectedHour > 12) {
+                            hourIn12Format = selectedHour - 12;
+                            amPm = "PM";
+                        } else {
+                            hourIn12Format = selectedHour;
+                            amPm = "AM";
+                        }
+
+                        String time = String.format("%02d:%02d %s", hourIn12Format, selectedMinute, amPm);
+                        inputClosingHours.setText(time);
+                    },
+                    hour,
+                    minute,
+                    false // false for 12-hour format with AM/PM
+            );
+
+            timePickerDialog.show();
+        });
+    }
+
+
 
     private void initCloudinary() {
         Map<String, String> config = new HashMap<>();
@@ -155,6 +240,8 @@ public class ActivityShowRestaurantProfileDetails extends AppCompatActivity {
                 inputMobile.setText(documentSnapshot.getString("phone"));
                 inputEmail.setText(documentSnapshot.getString("email"));
                 editMapAddress.setText(documentSnapshot.getString("location"));
+                inputClosingHours.setText(documentSnapshot.getString("closingHours"));
+                inputOpeningHours.setText(documentSnapshot.getString("openingHours"));
 
                 // Fetch and display the first image from the list
                 List<String> imageUrls = (List<String>) documentSnapshot.get("restaurantImageUrls");
@@ -180,6 +267,8 @@ public class ActivityShowRestaurantProfileDetails extends AppCompatActivity {
         String mobile = inputMobile.getText().toString().trim();
         String email = inputEmail.getText().toString().trim();
         String mapAddress = editMapAddress.getText().toString();
+        String strOpeningHours = inputOpeningHours.getText().toString();
+        String strClosingHours = inputClosingHours.getText().toString();
 
         if (name.isEmpty() || mobile.isEmpty() || email.isEmpty()) {
             Toast.makeText(this, "Please fill in all required fields", Toast.LENGTH_SHORT).show();
@@ -201,6 +290,8 @@ public class ActivityShowRestaurantProfileDetails extends AppCompatActivity {
         userData.put("phone", mobile);
         userData.put("email", email);
         userData.put("location", mapAddress);
+        userData.put("openingHours", strOpeningHours);
+        userData.put("closingHours", strClosingHours);
 
         if (!profileImageUris.isEmpty()) {
             uploadImagesToCloudinary(currentUserId, imageUrls -> {

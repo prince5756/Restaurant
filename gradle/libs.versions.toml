@@ -20,6 +20,11 @@ playServicesMaps = "19.0.0"
 playServicesLocation = "21.3.0"
 swiperefreshlayout = "1.1.0"
 picasso = "2.71828"
+mpandroidchart = "v3.1.0"
+checkout = "1.6.41"
+materialVersion = "1.13.0-alpha12"
+lottieVersion = "6.6.4"
+
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -41,6 +46,10 @@ play-services-maps = { group = "com.google.android.gms", name = "play-services-m
 play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
 picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
+mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
+checkout = { group = "com.razorpay", name = "checkout", version.ref = "checkout" }
+google-material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
+android-lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottieVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

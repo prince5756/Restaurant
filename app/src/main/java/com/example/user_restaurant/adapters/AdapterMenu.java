@@ -59,6 +59,7 @@ public class AdapterMenu extends RecyclerView.Adapter<AdapterMenu.MenuViewHolder
             intent.putExtra("itemPrice", menuItem.getItemPrice());
             intent.putExtra("foodType", menuItem.getFoodType());
             intent.putExtra("mealType", menuItem.getMealType());
+            intent.putExtra("quantity", menuItem.getQuantity());
             intent.putExtra("itemDescription", menuItem.getItemDescription());
             intent.putExtra("imageUrls", menuItem.getFoodImageUrls().toArray(new String[0]));
             context.startActivity(intent);

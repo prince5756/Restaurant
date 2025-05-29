@@ -2,6 +2,7 @@ package com.example.user_restaurant.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
@@ -19,7 +20,7 @@ import java.util.regex.Pattern;
 public class ActivityBookingHistory extends AppCompatActivity {
 
     private ImageView imgProfile;
-    private TextView txtName, txtEmail, txtPhone, txtCustomerId, txtBookingId,
+    private TextView txtStatus,txtName, txtEmail, txtPhone, txtCustomerId, txtBookingId,
             txtDate, txtTime, txtGuest, txtRestaurantId;
     String expiryTimestamp; // if needed
 
@@ -31,6 +32,7 @@ public class ActivityBookingHistory extends AppCompatActivity {
 
         // Initialize views
         imgProfile = findViewById(R.id.imgProfile);
+        txtStatus = findViewById(R.id.txtStatus);
         txtName = findViewById(R.id.txtName);
         txtEmail = findViewById(R.id.txtEmail);
         txtPhone = findViewById(R.id.txtPhone);
@@ -44,6 +46,7 @@ public class ActivityBookingHistory extends AppCompatActivity {
         // Retrieve data passed via intent extras
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            String Status = extras.getString("Status");
             String bookingId = extras.getString("bookingId");
             String restaurantId = extras.getString("restaurantId");
             String customerId = extras.getString("customerId");
@@ -70,10 +73,25 @@ public class ActivityBookingHistory extends AppCompatActivity {
             txtGuest.setText(guestCount != null ? guestCount : "N/A");
             txtRestaurantId.setText(restaurantId != null ? restaurantId : "N/A");
 
+            txtName.setText(name != null ? name : "N/A");
+            txtStatus.setText(Status != null ? Status : "N/A");
+
+            // Set txtStatus color based on the Status value
+            if (Status != null) {
+                if (Status.equalsIgnoreCase("Cancelled")) {
+                    txtStatus.setTextColor(android.graphics.Color.RED);
+                } else if (Status.equalsIgnoreCase("Booked")) {
+                    txtStatus.setTextColor(android.graphics.Color.GREEN);
+                } else if (Status.equalsIgnoreCase("Schedule Updated")) {
+                    txtStatus.setTextColor(Color.BLUE);
+                }
+            }
+
             if (profileImageUrl != null && !profileImageUrl.isEmpty()) {
                 Glide.with(this)
                         .load(Uri.parse(profileImageUrl))
-                        .placeholder(R.drawable.utveek)
+                        .placeholder(R.drawable.profile_tab)
+                        .error(R.drawable.profile_tab)
                         .into(imgProfile);
             }
         }

@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".activities.ActivityCheckRegistrationRequest">
+
+    <!-- Image slider for restaurant images -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerImages"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:padding="3dp"
+        android:layout_height="200dp"
+        android:background="#CCCCCC" />
+
+    <!-- Scrollable details container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+
+                <TextView
+                    android:id="@+id/labelNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Note"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Request Details"
+                android:textSize="25dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorPrimary">
+            </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+
+                <TextView
+                    android:id="@+id/labelRequest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Request"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textRequest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pending"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Payment Details"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+
+                <TextView
+                    android:id="@+id/labelPaymentStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Status"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textPaymentStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pending"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Row 10: Payment Amount -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelPaymentAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Amount"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textPaymentAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.00"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Row 11: Validity -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelPaymentDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PaymentDate"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textPaymentDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="10 March 25"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelValidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Validity"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textValidity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Valid Until"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Restaurant Details"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp">
+            </TextView>
+            <!-- Row 1: Restaurant Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <!-- Label -->
+
+                <TextView
+                    android:id="@+id/labelRestaurantName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <!-- Colon -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <!-- Value (existing ID) -->
+                <TextView
+                    android:id="@+id/textRestaurantName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Restaurant Name"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Row 2: Location -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Location"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Row 3: Phone -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Row 4: Email -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Email Address"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!--            &lt;!&ndash; Row 5: Total Menus &ndash;&gt;-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:paddingVertical="4dp">-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/labelTotalMenus"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Total Menus"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:textSize="16sp" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text=" :"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:paddingStart="4dp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textTotalMenus"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="0"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:paddingStart="8dp"-->
+            <!--                    android:layout_weight="1" />-->
+            <!--            </LinearLayout>-->
+
+            <!-- Row 6: Total Seats -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelTotalSeats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Seats"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <TextView
+                    android:id="@+id/textTotalSeats"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Row 7: Restaurant ID -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelRestaurantId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Restaurant ID"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <!-- Existing ID for Restaurant ID value -->
+                <TextView
+                    android:id="@+id/textRestaurantId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Restaurant ID"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Row 8: User ID -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/labelUserId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User ID"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" :"
+                    android:textSize="16sp"
+                    android:paddingStart="4dp" />
+                <!-- Existing ID for User ID value -->
+                <TextView
+                    android:id="@+id/textUserId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="User ID"
+                    android:textSize="16sp"
+                    android:paddingStart="8dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Row 9: Payment Status -->
+
+        </LinearLayout>
+    </ScrollView>
+
+<!--    &lt;!&ndash; Fixed Bottom Buttons &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="16dp"-->
+<!--        android:gravity="center"-->
+<!--        android:background="#EEEEEE">-->
+<!--        <Button-->
+<!--            android:id="@+id/buttonDeny"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="@color/black"-->
+<!--            android:text="Deny"-->
+<!--            android:layout_marginEnd="8dp" />-->
+<!--        <Button-->
+<!--            android:id="@+id/buttonApproved"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Approved"-->
+<!--            android:backgroundTint="@color/black"-->
+<!--            android:layout_marginStart="8dp" />-->
+<!--    </LinearLayout>-->
+
+</LinearLayout>

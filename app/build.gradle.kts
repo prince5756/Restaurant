@@ -49,6 +49,10 @@ dependencies {
     implementation(libs.play.services.location)
     implementation(libs.swiperefreshlayout)
     implementation(libs.picasso)
+    implementation(libs.mpandroidchart)
+    implementation(libs.checkout)
+    implementation(libs.google.material)
+    implementation(libs.android.lottie)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

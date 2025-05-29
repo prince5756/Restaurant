@@ -8,610 +8,610 @@
     android:padding="15dp"
     tools:context=".activities.PaymentMethods">
 
-    <TextView
-        android:id="@+id/textView57"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="Choose Payment \nOption"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView57"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="25dp"-->
+<!--        android:layout_marginTop="25dp"-->
+<!--        android:fontFamily="@font/montserrat_semi_bold"-->
+<!--        android:text="Choose Payment \nOption"-->
+<!--        android:textColor="#000"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <ScrollView
-        android:id="@+id/scrollView4"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView57">
+<!--    <ScrollView-->
+<!--        android:id="@+id/scrollView4"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView57">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:paddingHorizontal="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:id="@+id/constraintLayout11"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="25dp"-->
+<!--                    android:paddingHorizontal="20dp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
 
-                    <ImageView
-                        android:id="@+id/imageView44"
-                        android:layout_width="0dp"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/horizontal_line"
-                        android:backgroundTint="#D5D5D5"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView44"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="2dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:background="@drawable/horizontal_line"-->
+<!--                        android:backgroundTint="#D5D5D5"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <ImageView
-                        android:id="@+id/imageView40"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView44"
-                        app:srcCompat="@drawable/credit_card" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView40"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/imageView44"-->
+<!--                        app:srcCompat="@drawable/credit_card" />-->
 
-                    <TextView
-                        android:id="@+id/textView63"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:drawableEnd="@drawable/arrow"
-                        android:drawableTint="#B8B8B8"
-                        android:fontFamily="@font/roboto_regular"
-                        android:letterSpacing=".02"
-                        android:text="Credit Card / Debit Card"
-                        android:textColor="#757575"
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView40"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView40"
-                        app:layout_constraintTop_toTopOf="@+id/imageView40" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView63"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="20dp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:drawableEnd="@drawable/arrow"-->
+<!--                        android:drawableTint="#B8B8B8"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:letterSpacing=".02"-->
+<!--                        android:text="Credit Card / Debit Card"-->
+<!--                        android:textColor="#757575"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/imageView40"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/imageView40"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/imageView40" />-->
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/child_layout_card"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="15dp"
-                        android:paddingHorizontal="15dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView40">
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:id="@+id/child_layout_card"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:paddingHorizontal="15dp"-->
+<!--                        android:visibility="gone"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/imageView40">-->
 
-                        <TextView
-                            android:id="@+id/textView65"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="30dp"
-                            android:fontFamily="@font/alegreya_sans"
-                            android:text="Credit / Debit Card Number"
-                            android:textColor="#2C2C2C"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView65"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="5dp"-->
+<!--                            android:layout_marginTop="30dp"-->
+<!--                            android:fontFamily="@font/alegreya_sans"-->
+<!--                            android:text="Credit / Debit Card Number"-->
+<!--                            android:textColor="#2C2C2C"-->
+<!--                            android:textSize="14sp"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
 
-                        <ImageView
-                            android:id="@+id/imageView46"
-                            android:layout_width="50dp"
-                            android:layout_height="40dp"
-                            android:layout_marginEnd="5dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/editTextText4"
-                            app:layout_constraintEnd_toEndOf="@+id/editTextText4"
-                            app:layout_constraintTop_toTopOf="@+id/editTextText4"
-                            app:srcCompat="@drawable/visa" />
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageView46"-->
+<!--                            android:layout_width="50dp"-->
+<!--                            android:layout_height="40dp"-->
+<!--                            android:layout_marginEnd="5dp"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/editTextText4"-->
+<!--                            app:layout_constraintEnd_toEndOf="@+id/editTextText4"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/editTextText4"-->
+<!--                            app:srcCompat="@drawable/visa" />-->
 
-                        <EditText
-                            android:id="@+id/editTextText4"
-                            android:layout_width="0dp"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/custom_input"
-                            android:ems="10"
-                            android:fontFamily="@font/alatsi"
-                            android:hint="0000 0000 0000 "
-                            android:inputType="number"
-                            android:paddingStart="15dp"
-                            android:textColor="#000"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView65" />
+<!--                        <EditText-->
+<!--                            android:id="@+id/editTextText4"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="50dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:background="@drawable/custom_input"-->
+<!--                            android:ems="10"-->
+<!--                            android:fontFamily="@font/alatsi"-->
+<!--                            android:hint="0000 0000 0000 "-->
+<!--                            android:inputType="number"-->
+<!--                            android:paddingStart="15dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView65" />-->
 
-                        <TextView
-                            android:id="@+id/textView67"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/alegreya_sans"
-                            android:text="CVV"
-                            android:textColor="#2C2C2C"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView67"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="5dp"-->
+<!--                            android:layout_marginTop="15dp"-->
+<!--                            android:fontFamily="@font/alegreya_sans"-->
+<!--                            android:text="CVV"-->
+<!--                            android:textColor="#2C2C2C"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />-->
 
-                        <EditText
-                            android:id="@+id/editTextText5"
-                            android:layout_width="100dp"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/custom_input"
-                            android:ems="10"
-                            android:fontFamily="@font/alatsi"
-                            android:hint="0000"
-                            android:inputType="number"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="25dp"
-                            android:textColor="#000"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView67" />
+<!--                        <EditText-->
+<!--                            android:id="@+id/editTextText5"-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="50dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:background="@drawable/custom_input"-->
+<!--                            android:ems="10"-->
+<!--                            android:fontFamily="@font/alatsi"-->
+<!--                            android:hint="0000"-->
+<!--                            android:inputType="number"-->
+<!--                            android:paddingVertical="10dp"-->
+<!--                            android:paddingStart="25dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView67" />-->
 
-                        <TextView
-                            android:id="@+id/textView66"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/alegreya_sans"
-                            android:text="Expires"
-                            android:textColor="#2C2C2C"
-                            app:layout_constraintStart_toEndOf="@+id/editTextText5"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView66"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="25dp"-->
+<!--                            android:layout_marginTop="15dp"-->
+<!--                            android:fontFamily="@font/alegreya_sans"-->
+<!--                            android:text="Expires"-->
+<!--                            android:textColor="#2C2C2C"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/editTextText5"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />-->
 
-                        <EditText
-                            android:id="@+id/editTextText6"
-                            android:layout_width="100dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/custom_input"
-                            android:ems="10"
-                            android:fontFamily="@font/alatsi"
-                            android:hint="12/25"
-                            android:inputType="datetime|date"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="25dp"
-                            android:textColor="#000"
-                            app:layout_constraintStart_toEndOf="@+id/editTextText5"
-                            app:layout_constraintTop_toBottomOf="@+id/textView66" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                        <EditText-->
+<!--                            android:id="@+id/editTextText6"-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="50dp"-->
+<!--                            android:layout_marginStart="20dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:background="@drawable/custom_input"-->
+<!--                            android:ems="10"-->
+<!--                            android:fontFamily="@font/alatsi"-->
+<!--                            android:hint="12/25"-->
+<!--                            android:inputType="datetime|date"-->
+<!--                            android:paddingVertical="10dp"-->
+<!--                            android:paddingStart="25dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/editTextText5"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView66" />-->
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout11">
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:id="@+id/constraintLayout12"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingHorizontal="20dp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout11">-->
 
-                    <ImageView
-                        android:id="@+id/imageView44"
-                        android:layout_width="0dp"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/horizontal_line"
-                        android:backgroundTint="#D5D5D5"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView44"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="2dp"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:background="@drawable/horizontal_line"-->
+<!--                        android:backgroundTint="#D5D5D5"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <ImageView
-                        android:id="@+id/imageView41"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView44"
-                        app:srcCompat="@drawable/net_bank" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView41"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/imageView44"-->
+<!--                        app:srcCompat="@drawable/net_bank" />-->
 
-                    <TextView
-                        android:id="@+id/text_net_banking"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:drawableEnd="@drawable/arrow"
-                        android:drawableTint="#B8B8B8"
-                        android:fontFamily="@font/roboto_regular"
-                        android:letterSpacing=".02"
-                        android:text="Net Banking"
-                        android:textColor="#757575"
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView41"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/imageView41"
-                        app:layout_constraintTop_toTopOf="@+id/imageView41" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/text_net_banking"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="20dp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:drawableEnd="@drawable/arrow"-->
+<!--                        android:drawableTint="#B8B8B8"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:letterSpacing=".02"-->
+<!--                        android:text="Net Banking"-->
+<!--                        android:textColor="#757575"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/imageView41"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintHorizontal_bias="1.0"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/imageView41"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/imageView41" />-->
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/child_layout_net_banking"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:paddingHorizontal="15dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_net_banking">
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:id="@+id/child_layout_net_banking"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:paddingHorizontal="15dp"-->
+<!--                        android:visibility="gone"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/text_net_banking">-->
 
-                        <TextView
-                            android:id="@+id/textView65"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="30dp"
-                            android:fontFamily="@font/alegreya_sans"
-                            android:text="Credit / Debit Card Number"
-                            android:textColor="#2C2C2C"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView65"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="5dp"-->
+<!--                            android:layout_marginTop="30dp"-->
+<!--                            android:fontFamily="@font/alegreya_sans"-->
+<!--                            android:text="Credit / Debit Card Number"-->
+<!--                            android:textColor="#2C2C2C"-->
+<!--                            android:textSize="14sp"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
 
-                        <ImageView
-                            android:id="@+id/imageView46"
-                            android:layout_width="50dp"
-                            android:layout_height="40dp"
-                            android:layout_marginEnd="5dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/editTextText4"
-                            app:layout_constraintEnd_toEndOf="@+id/editTextText4"
-                            app:layout_constraintTop_toTopOf="@+id/editTextText4"
-                            app:srcCompat="@drawable/visa" />
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageView46"-->
+<!--                            android:layout_width="50dp"-->
+<!--                            android:layout_height="40dp"-->
+<!--                            android:layout_marginEnd="5dp"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/editTextText4"-->
+<!--                            app:layout_constraintEnd_toEndOf="@+id/editTextText4"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/editTextText4"-->
+<!--                            app:srcCompat="@drawable/visa" />-->
 
-                        <EditText
-                            android:id="@+id/editTextText4"
-                            android:layout_width="0dp"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/custom_input"
-                            android:ems="10"
-                            android:fontFamily="@font/alatsi"
-                            android:hint="0000 0000 0000 "
-                            android:inputType="number"
-                            android:paddingStart="15dp"
-                            android:textColor="#000"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView65" />
+<!--                        <EditText-->
+<!--                            android:id="@+id/editTextText4"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="50dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:background="@drawable/custom_input"-->
+<!--                            android:ems="10"-->
+<!--                            android:fontFamily="@font/alatsi"-->
+<!--                            android:hint="0000 0000 0000 "-->
+<!--                            android:inputType="number"-->
+<!--                            android:paddingStart="15dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView65" />-->
 
-                        <TextView
-                            android:id="@+id/textView67"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/alegreya_sans"
-                            android:text="CVV"
-                            android:textColor="#2C2C2C"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView67"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="5dp"-->
+<!--                            android:layout_marginTop="15dp"-->
+<!--                            android:fontFamily="@font/alegreya_sans"-->
+<!--                            android:text="CVV"-->
+<!--                            android:textColor="#2C2C2C"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />-->
 
-                        <EditText
-                            android:id="@+id/editTextText5"
-                            android:layout_width="100dp"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/custom_input"
-                            android:ems="10"
-                            android:fontFamily="@font/alatsi"
-                            android:hint="0000"
-                            android:inputType="number"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="25dp"
-                            android:textColor="#000"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView67" />
+<!--                        <EditText-->
+<!--                            android:id="@+id/editTextText5"-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="50dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:background="@drawable/custom_input"-->
+<!--                            android:ems="10"-->
+<!--                            android:fontFamily="@font/alatsi"-->
+<!--                            android:hint="0000"-->
+<!--                            android:inputType="number"-->
+<!--                            android:paddingVertical="10dp"-->
+<!--                            android:paddingStart="25dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView67" />-->
 
-                        <TextView
-                            android:id="@+id/textView66"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:layout_marginTop="15dp"
-                            android:fontFamily="@font/alegreya_sans"
-                            android:text="Expires"
-                            android:textColor="#2C2C2C"
-                            app:layout_constraintStart_toEndOf="@+id/editTextText5"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView66"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="25dp"-->
+<!--                            android:layout_marginTop="15dp"-->
+<!--                            android:fontFamily="@font/alegreya_sans"-->
+<!--                            android:text="Expires"-->
+<!--                            android:textColor="#2C2C2C"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/editTextText5"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/editTextText4" />-->
 
-                        <EditText
-                            android:id="@+id/editTextText6"
-                            android:layout_width="100dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/custom_input"
-                            android:ems="10"
-                            android:fontFamily="@font/alatsi"
-                            android:hint="12/25"
-                            android:inputType="datetime|date"
-                            android:paddingVertical="10dp"
-                            android:paddingStart="25dp"
-                            android:textColor="#000"
-                            app:layout_constraintStart_toEndOf="@+id/editTextText5"
-                            app:layout_constraintTop_toBottomOf="@+id/textView66" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                        <EditText-->
+<!--                            android:id="@+id/editTextText6"-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="50dp"-->
+<!--                            android:layout_marginStart="20dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:background="@drawable/custom_input"-->
+<!--                            android:ems="10"-->
+<!--                            android:fontFamily="@font/alatsi"-->
+<!--                            android:hint="12/25"-->
+<!--                            android:inputType="datetime|date"-->
+<!--                            android:paddingVertical="10dp"-->
+<!--                            android:paddingStart="25dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/editTextText5"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView66" />-->
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layout_upi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout12">
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:id="@+id/layout_upi"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:paddingHorizontal="20dp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout12">-->
 
-                    <ImageView
-                        android:id="@+id/imageView44"
-                        android:layout_width="0dp"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/horizontal_line"
-                        android:backgroundTint="#D5D5D5"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView44"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="2dp"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:background="@drawable/horizontal_line"-->
+<!--                        android:backgroundTint="#D5D5D5"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <ImageView
-                        android:id="@+id/imageView42"
-                        android:layout_width="35dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
-                        android:scaleX="1.5"
-                        android:scaleY="1.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView44"
-                        app:srcCompat="@drawable/upi" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imageView42"-->
+<!--                        android:layout_width="35dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:scaleX="1.5"-->
+<!--                        android:scaleY="1.5"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/imageView44"-->
+<!--                        app:srcCompat="@drawable/upi" />-->
 
-                    <TextView
-                        android:id="@+id/text_upi"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:drawableEnd="@drawable/arrow"
-                        android:drawableTint="#B8B8B8"
-                        android:fontFamily="@font/roboto_regular"
-                        android:letterSpacing=".02"
-                        android:text="Pay With UPI"
-                        android:textColor="#757575"
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView42"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/imageView42"
-                        app:layout_constraintTop_toTopOf="@+id/imageView42" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/text_upi"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="20dp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:drawableEnd="@drawable/arrow"-->
+<!--                        android:drawableTint="#B8B8B8"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:letterSpacing=".02"-->
+<!--                        android:text="Pay With UPI"-->
+<!--                        android:textColor="#757575"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/imageView42"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintHorizontal_bias="1.0"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/imageView42"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/imageView42" />-->
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/child_layout_upi"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:paddingHorizontal="15dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_upi">
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:id="@+id/child_layout_upi"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:paddingHorizontal="15dp"-->
+<!--                        android:visibility="gone"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/text_upi">-->
 
-                        <TextView
-                            android:id="@+id/textView68"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="Pay With UPI Apps"
-                            android:textColor="#757575"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView68"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="20dp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="Pay With UPI Apps"-->
+<!--                            android:textColor="#757575"-->
+<!--                            android:textStyle="bold"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
 
-                        <ImageView
-                            android:id="@+id/imageView47"
-                            android:layout_width="0dp"
-                            android:layout_height="3dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/horizontal_line"
-                            android:backgroundTint="#757575"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView68"
-                            app:layout_constraintEnd_toStartOf="@+id/textView68"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/textView68" />
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageView47"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="3dp"-->
+<!--                            android:layout_marginEnd="10dp"-->
+<!--                            android:background="@drawable/horizontal_line"-->
+<!--                            android:backgroundTint="#757575"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/textView68"-->
+<!--                            app:layout_constraintEnd_toStartOf="@+id/textView68"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/textView68" />-->
 
-                        <ImageView
-                            android:id="@+id/imageView48"
-                            android:layout_width="0dp"
-                            android:layout_height="3dp"
-                            android:layout_marginStart="10dp"
-                            android:background="@drawable/horizontal_line"
-                            android:backgroundTint="#757575"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView68"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textView68"
-                            app:layout_constraintTop_toTopOf="@+id/textView68" />
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageView48"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="3dp"-->
+<!--                            android:layout_marginStart="10dp"-->
+<!--                            android:background="@drawable/horizontal_line"-->
+<!--                            android:backgroundTint="#757575"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/textView68"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/textView68"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/textView68" />-->
 
-                        <ImageButton
-                            android:id="@+id/imageButton"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:scaleType="center"
-                            app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-                            app:layout_constraintTop_toTopOf="@+id/radioGroup"
-                            app:srcCompat="@drawable/gpay" />
+<!--                        <ImageButton-->
+<!--                            android:id="@+id/imageButton"-->
+<!--                            android:layout_width="30dp"-->
+<!--                            android:layout_height="30dp"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:layout_marginEnd="10dp"-->
+<!--                            android:scaleType="center"-->
+<!--                            app:layout_constraintEnd_toEndOf="@+id/radioGroup"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/radioGroup"-->
+<!--                            app:srcCompat="@drawable/gpay" />-->
 
-                        <ImageView
-                            android:id="@+id/imageView49"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="10dp"
-                            app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
-                            app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-                            app:srcCompat="@drawable/phone_pe" />
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageView49"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginEnd="10dp"-->
+<!--                            android:layout_marginBottom="10dp"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/radioGroup"-->
+<!--                            app:layout_constraintEnd_toEndOf="@+id/radioGroup"-->
+<!--                            app:srcCompat="@drawable/phone_pe" />-->
 
-                        <RadioGroup
-                            android:id="@+id/radioGroup"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="15dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView68">
+<!--                        <RadioGroup-->
+<!--                            android:id="@+id/radioGroup"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="15dp"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:layout_marginEnd="15dp"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView68">-->
 
-                            <RadioButton
-                                android:id="@+id/radioButton"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:buttonTint="#404040"
-                                android:fontFamily="@font/alatsi"
-                                android:text="Google Pay"
-                                android:textColor="#404040"
-                                android:textSize="16sp" />
+<!--                            <RadioButton-->
+<!--                                android:id="@+id/radioButton"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:buttonTint="#404040"-->
+<!--                                android:fontFamily="@font/alatsi"-->
+<!--                                android:text="Google Pay"-->
+<!--                                android:textColor="#404040"-->
+<!--                                android:textSize="16sp" />-->
 
-                            <RadioButton
-                                android:id="@+id/radioButton5"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:buttonTint="#404040"
-                                android:fontFamily="@font/alatsi"
-                                android:text="Phone Pe"
-                                android:textColor="#404040"
-                                android:textSize="16sp" />
-                        </RadioGroup>
+<!--                            <RadioButton-->
+<!--                                android:id="@+id/radioButton5"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:buttonTint="#404040"-->
+<!--                                android:fontFamily="@font/alatsi"-->
+<!--                                android:text="Phone Pe"-->
+<!--                                android:textColor="#404040"-->
+<!--                                android:textSize="16sp" />-->
+<!--                        </RadioGroup>-->
 
-                        <TextView
-                            android:id="@+id/textView69"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:text="Pay With UPI ID"
-                            android:textColor="#757575"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView69"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:fontFamily="@font/montserrat_regular"-->
+<!--                            android:text="Pay With UPI ID"-->
+<!--                            android:textColor="#757575"-->
+<!--                            android:textStyle="bold"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />-->
 
-                        <ImageView
-                            android:id="@+id/imageView50"
-                            android:layout_width="0dp"
-                            android:layout_height="3dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/horizontal_line"
-                            android:backgroundTint="#757575"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView69"
-                            app:layout_constraintEnd_toStartOf="@+id/textView69"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/textView69" />
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageView50"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="3dp"-->
+<!--                            android:layout_marginEnd="10dp"-->
+<!--                            android:background="@drawable/horizontal_line"-->
+<!--                            android:backgroundTint="#757575"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/textView69"-->
+<!--                            app:layout_constraintEnd_toStartOf="@+id/textView69"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/textView69" />-->
 
-                        <ImageView
-                            android:id="@+id/imageView51"
-                            android:layout_width="0dp"
-                            android:layout_height="3dp"
-                            android:layout_marginStart="10dp"
-                            android:background="@drawable/horizontal_line"
-                            android:backgroundTint="#757575"
-                            app:layout_constraintBottom_toBottomOf="@+id/textView69"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textView69"
-                            app:layout_constraintTop_toTopOf="@+id/textView69" />
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imageView51"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="3dp"-->
+<!--                            android:layout_marginStart="10dp"-->
+<!--                            android:background="@drawable/horizontal_line"-->
+<!--                            android:backgroundTint="#757575"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/textView69"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/textView69"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/textView69" />-->
 
-                        <TextView
-                            android:id="@+id/textView70"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="20dp"
-                            android:fontFamily="@font/alegreya_sans"
-                            android:text="Enter UPI ID"
-                            android:textColor="#2C2C2C"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView69" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/textView70"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="20dp"-->
+<!--                            android:layout_marginTop="20dp"-->
+<!--                            android:fontFamily="@font/alegreya_sans"-->
+<!--                            android:text="Enter UPI ID"-->
+<!--                            android:textColor="#2C2C2C"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView69" />-->
 
-                        <EditText
-                            android:id="@+id/editTextText7"
-                            android:layout_width="0dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginEnd="15dp"
-                            android:background="@drawable/custom_input"
-                            android:ems="10"
-                            android:fontFamily="@font/alatsi"
-                            android:inputType="text"
-                            android:paddingStart="20dp"
-                            android:textColor="#000"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView70" />
+<!--                        <EditText-->
+<!--                            android:id="@+id/editTextText7"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="50dp"-->
+<!--                            android:layout_marginStart="15dp"-->
+<!--                            android:layout_marginTop="5dp"-->
+<!--                            android:layout_marginEnd="15dp"-->
+<!--                            android:background="@drawable/custom_input"-->
+<!--                            android:ems="10"-->
+<!--                            android:fontFamily="@font/alatsi"-->
+<!--                            android:inputType="text"-->
+<!--                            android:paddingStart="20dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView70" />-->
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                <ImageView
-                    android:id="@+id/imageView45"
-                    android:layout_width="0dp"
-                    android:layout_height="2dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/horizontal_line"
-                    android:backgroundTint="#D5D5D5"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/layout_upi" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView45"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="2dp"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:background="@drawable/horizontal_line"-->
+<!--                    android:backgroundTint="#D5D5D5"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/layout_upi" />-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-        </LinearLayout>
-    </ScrollView>
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#000"
-        android:fontFamily="@font/roboto_regular"
-        android:paddingVertical="15dp"
-        android:text="Processed To Pay"
-        android:textAllCaps="false"
-        android:textColor="#FFF"
-        app:cornerRadius="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/button6"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginEnd="40dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:backgroundTint="#000"-->
+<!--        android:fontFamily="@font/roboto_regular"-->
+<!--        android:paddingVertical="15dp"-->
+<!--        android:text="Processed To Pay"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="#FFF"-->
+<!--        app:cornerRadius="50dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
